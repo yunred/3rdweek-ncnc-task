@@ -1,15 +1,21 @@
 import React from 'react';
 import ProductContent from '../ProductContent/index.ProductContent';
 import { ProductProps } from '../Types/ProductType';
+import { ProductContentStyle } from '../ProductContent/style.ProductContent';
 
-const ProductContainer = ({ props }: ProductProps) => {
+interface ProductContainerProps {
+  ProductData: ProductProps[];
+}
+
+const ProductContainer = ({ ProductData }: ProductContainerProps) => {
   return (
     <>
-      {props.map((item, index) => (
-        <li key={index}>
-          <ProductContent props={item} />
-        </li>
+      {ProductData.map((item, index) => (
+        <div className="product_container" key={index}>
+          <ProductContent ProductData={item} />
+        </div>
       ))}
+      <style jsx>{ProductContentStyle}</style>
     </>
   );
 };
