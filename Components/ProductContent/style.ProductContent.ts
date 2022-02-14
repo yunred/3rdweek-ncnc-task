@@ -1,7 +1,9 @@
 import css from 'styled-jsx/css';
 export const ProductContentStyle = css`
   * {
-    box-sizing: border-box;
+    //box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
   }
 
   .container {
