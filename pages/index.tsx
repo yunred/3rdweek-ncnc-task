@@ -3,6 +3,7 @@ import APICompo from '/Components/APICompo/index.APICompo'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import CategoryContainer from '../Components/CategoryContainer/index.CategoryContainer'
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +19,6 @@ const Home: NextPage = () => {
         <APICompo/>
         */}
       </main>
-
       <footer className={styles.footer}>
         
       </footer>
