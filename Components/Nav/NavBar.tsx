@@ -2,35 +2,33 @@ import style from "./NavBar.module.css";
 import css from "styled-jsx/css";
 import Link from "next/link";
 import Image from 'next/image'
+import * as C from "../../Const/Const";
+import * as H from "../../Hooks/index";
+import { useState, useEffect } from 'react';
 
-const data = {
-    conCategory1s: [
-        {   
-            id: 67,
-            name: "카페",
-            discountRate: 50,
-            imageUrl: "https://d1dsr05o5i286u.cloudfront.net/a2402a35-038b-4b68-a152-2cc14dff532c.jpg"
-        },
-        {
-            id: 62,
-            name: "편의점,마트",
-            discountRate: 51,
-            imageUrl : "https://d1dsr05o5i286u.cloudfront.net/bdaf1959-6c65-496b-bcc6-b06147ebd44f.jpg"
-        },
-    ]
-}
 
-  
+
 interface NavDataType{
-  key: string;
+  key?: string | number;
+  map: string;
   src: string;
   alt: string;
   width: string;
   height: string;
   href?: string | undefined;
+  items: string;
 }
 
 const NavBar = (NavData:NavDataType): JSX.Element => {
+    const [CONCATEGORY_API, setCONCATEGORY_API] = useState([]);
+
+    useEffect(()=> {
+        (async () => {
+            let JsonDatas = await H.useFetch(C.CONCATEGORY_API);
+            setCONCATEGORY_API(JsonDatas.conCategory1s);
+        })();
+    },[])
+
   return (
     <>
         <div className={style.NavContainer}>
@@ -43,14 +41,20 @@ const NavBar = (NavData:NavDataType): JSX.Element => {
                     <Image src="/imgaes/leftarrow.png" alt="seeback" width="50%" height="50%"  />
                     </button>
                 </a>
-                <div className={style.Categories} >
-                    {data.conCategory1s[0].name}
+                {CONCATEGORY_API.map((e, index) => {
+                <div className={style.Categories} key={index} >
+                   {e.name}
                 </div>
+                })}
                 <div className={style.NullBox} />
             </div>
+
             <ul className={style.NavDetailContents} >
-               <li>{data.conCategory1s[0].name}</li> 
-               <li>{data.conCategory1s[1].name}</li> 
+                {CONCATEGORY_API.map((e, index) => {
+                    <li className={style.item} key={index}>
+                        {e.name}
+                    </li>
+                })}
             </ul>
         </div>
     </>
