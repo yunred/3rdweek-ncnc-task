@@ -1,3 +1,27 @@
-.NavContainer {
+.navContainer {
   display: flex;
+  flex-direction: column;
+}
+
+.navContents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categories {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.navDetailContents {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.imageBox {
+  margin-left: 50px;
 }
