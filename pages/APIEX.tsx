@@ -22,8 +22,8 @@ const APIEX: NextPage = ({ GetProductProps, GetCategoryProps } :T.APICompoProps 
 }
 
 export const getServerSideProps : GetServerSideProps  = async () => {
-    const GetCategoryProps:T.CategoryType = await H.useFetch(C.CONCATEGORY_API);
-    const GetProductProps = await H.useFetch(C.CONITEM_API + C.SOON);
+    const GetCategoryProps:T.CategoryType = await useFetch(C.CONCATEGORY_API);
+    const GetProductProps = await useFetch(C.CONITEM_API + C.SOON);
     
     return {
         props: {GetProductProps:GetProductProps, GetCategoryProps:GetCategoryProps}
