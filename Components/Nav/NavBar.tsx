@@ -37,13 +37,13 @@ const NavBar = ({CategoryData}: {CategoryData: T.CategoryProps},NavData:NavDataT
             </div>
 
             <ul className={style.navDetailContents} >
-            {CategoryData &&  CategoryData.map((item: T.CategoryProps,index :number) => {
-                    return(
-                        <li className={style.item} key={index}>
-                            {item.name}
-                        </li>
-                    )
-                })}
+            {CategoryData.map((item: T.CategoryProps,index :number) => {
+        return (
+          <div key={index} className={style.innerContainer}>
+            <NavItem CategoryData={item} />
+          </div>
+        );
+      })}
             </ul>
         </div>
     </>
