@@ -10,6 +10,7 @@ const Home: NextPage = ({menuCategory,productContent} :any) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
+        <NavBar CategoryData={menuCategory.conCategory1s}/>
         <CategoryContainer CategoryData={menuCategory.conCategory1s}/>
         <ProductContainer props={productContent.conItems}/>
       </main>
