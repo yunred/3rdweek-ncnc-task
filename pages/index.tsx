@@ -4,6 +4,7 @@ import * as H from "/Hooks/Hooks.ts";
 import styles from '../styles/Home.module.css'
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from '/Components/ProductContainer/index.ProductContainer';
+import NavBar from '../Components/Nav/NavBar';
 
 const Home: NextPage = ({menuCategory,productContent} :any) => {
   return (
