@@ -14,8 +14,7 @@ const Category = ({CategoryData}: {CategoryData: CategoryProps}): JSX.Element =>
     <>
       {CategoryData && (
         <div className={style.Container} key={CategoryData.id}>
-          {/* <Link href={CategoryData.linkUrl}> */}
-          <Link href="#">
+          <Link href={`category/${CategoryData.id}`}>
             <a className={style.link}>
               <div className={style.CategoryContent}>
                 <img
