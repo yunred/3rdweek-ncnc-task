@@ -44,10 +44,7 @@ const NavBar = (): JSX.Element => {
                 <Image src="/images/hamburgermenu.png" alt="seemore" width="50%" height="50%" />
                 </button>:  <button>
                 <Image src="/images/leftarrow.png" alt="seeback" width="50%" height="50%"  />
-                </button> }
-
-               
-               
+                </button> }               
             </a>
             <div>
                 <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
