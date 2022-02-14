@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import * as C from "/Const/Const";
 import * as H from "/Hooks/Hooks.ts";
 import styles from '../styles/Home.module.css'

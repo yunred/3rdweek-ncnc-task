@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps, GetServerSideProps  } from 'next'
+import type { NextPage, GetServerSideProps  } from 'next'
 import APICompo from '/Components/APICompo/index.APICompo'
 import Head from 'next/head'
 import Image from 'next/image'
