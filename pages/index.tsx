@@ -1,7 +1,7 @@
-import type { NextPage } from 'next';
-import * as C from '/Const/Const';
-import * as H from '/Hooks/Hooks.ts';
-import styles from '../styles/Home.module.css';
+import type { NextPage, GetServerSideProps } from 'next'
+import * as C from "/Const/Const";
+import * as H from "/Hooks/Hooks.ts";
+import styles from '../styles/Home.module.css'
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from '/Components/ProductContainer/index.ProductContainer';
 
