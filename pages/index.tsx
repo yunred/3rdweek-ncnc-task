@@ -10,6 +10,10 @@ const Home: NextPage = ({menuCategory,productContent} :any) => {
     <div className={styles.container}>
       <main className={styles.main}>
         <CategoryContainer CategoryData={menuCategory.conCategory1s}/>
+        <div className={styles.middleContent}>
+          <span className={styles.contentMessage1}>놓치지 마세요</span>
+          <span className={styles.contentMessage2}>오늘의 땡처리콘!</span>
+        </div>
         <ProductContainer props={productContent.conItems}/>
       </main>
 
