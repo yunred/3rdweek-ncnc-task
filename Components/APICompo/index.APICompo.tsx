@@ -6,7 +6,6 @@ import * as T from '/Types/Types.ts';
 import { useState, useEffect } from 'react';
 
 const APICompo = ({ InititalProps }:T.APICompoProps) => {
-    console.log(InititalProps);
     
     return (
         <ul>
@@ -18,7 +17,6 @@ const APICompo = ({ InititalProps }:T.APICompoProps) => {
 }
 
 export const StaticProps = ({ data }:T.CategoryType):JSX.Element => {
-    console.log(data);
     return(
         <>
         <h3>StaticProps</h3>
