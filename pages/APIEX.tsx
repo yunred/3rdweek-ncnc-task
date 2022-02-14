@@ -8,7 +8,6 @@ import * as H from '/Hooks/Hooks.ts';
 import * as T from '/Types/Types.ts';
 
 const APIEX: NextPage = ({ InititalProps } :T.APICompoProps ) => {
-    console.log(InititalProps);
 
     return (
         <div className={styles.container}>
