@@ -6,48 +6,25 @@ import * as T from '/Types/Types.ts';
 import { useState, useEffect } from 'react';
 
 const APICompo = ({ InititalProps }:T.APICompoProps) => {
-    console.log(InititalProps);
     
     return (
         <ul>
             <ul>
-                <StaticProps data= {InititalProps}/>
+                <StaticProps data= {InititalProps.conCategory1s}/>
             </ul>
         </ul>
     )
 }
 
 export const StaticProps = ({ data }:T.CategoryType):JSX.Element => {
-    console.log(data);
     return(
         <>
-        <h3>InitialProps</h3>
+        <h3>StaticProps</h3>
         <h4>카테고리</h4>
+        {data.map((e, index) => <li key={index}>{e.name}</li>)}
         </>
-    )
+    );
 }
 
-
-/*
-    const [CONCATEGORY_API, setCONCATEGORY_API] = useState([]);
-    const [CONITEM_SOON_API,  setCONITEM_SOON_API] = useState([]);
-    useEffect(() => {
-        (async () => {
-            let JsonData = await H.useFetch(C.CONCATEGORY_API);
-            console.log(JsonData);
-            setCONCATEGORY_API(JsonData.conCategory1s);
-            JsonData = await H.useFetch(C.CONITEM_API+C.SOON);
-            setCONITEM_SOON_API(JsonData.conItems);
-        })();
-    },[]);
-
-
-
-    <ul>
-                <h3>CONITEM_SOON_API</h3>
-                {CONITEM_SOON_API.map((e, index) => <li key={index}>{e.name}</li>)}
-            </ul>
-
-*/
 
 export default APICompo
