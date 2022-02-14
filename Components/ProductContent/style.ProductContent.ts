@@ -11,6 +11,7 @@ export const ProductContentStyle = css`
     width: 375px;
     padding: 17px 0 17px 17px;
     border-bottom: solid 1px #f1f3f4;
+    background-color: #ffffff;
   }
   .product_img {
     width: 74px;
