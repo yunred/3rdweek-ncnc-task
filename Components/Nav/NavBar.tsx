@@ -51,10 +51,11 @@ const NavBar = (): JSX.Element => {
             <div>
                 <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
             </div>
-
-           
-        </div>
-    </>
+    </div>
+    </Link>
+    
+ 
+    </nav>
   );
 };
 
