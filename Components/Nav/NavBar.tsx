@@ -6,6 +6,12 @@ import * as C from "../../Const/Const";
 import * as H from "../../Hooks/index";
 import { useState, useEffect } from 'react';
 
+interface CategoryProps {
+    id: number;
+    name: string;
+    discountRate: number;
+    imageUrl: string;
+  }
 
 
 interface NavDataType{
@@ -21,14 +27,12 @@ interface NavDataType{
 
 const NavBar = (NavData:NavDataType): JSX.Element => {
     const [CONCATEGORY_API, setCONCATEGORY_API] = useState([]);
-
-    useEffect(()=> {
+    useEffect(() => {
         (async () => {
-            let JsonDatas = await H.useFetch(C.CONCATEGORY_API);
-            setCONCATEGORY_API(JsonDatas.conCategory1s);
+            let JsonData = await H.useFetch(C.CONCATEGORY_API);
+            setCONCATEGORY_API(JsonData.conCategory1s);
         })();
-    },[])
-
+    },[]);
   return (
     <>
         <div className={style.NavContainer}>
@@ -41,7 +45,7 @@ const NavBar = (NavData:NavDataType): JSX.Element => {
                     <Image src="/imgaes/leftarrow.png" alt="seeback" width="50%" height="50%"  />
                     </button>
                 </a>
-                {CONCATEGORY_API.map((e, index) => {
+                {CONCATEGORY_API.map((e: CategoryProps, index) => {
                 <div className={style.Categories} key={index} >
                    {e.name}
                 </div>
@@ -50,7 +54,7 @@ const NavBar = (NavData:NavDataType): JSX.Element => {
             </div>
 
             <ul className={style.NavDetailContents} >
-                {CONCATEGORY_API.map((e, index) => {
+                {CONCATEGORY_API.map((e:CategoryProps, index) => {
                     <li className={style.item} key={index}>
                         {e.name}
                     </li>
