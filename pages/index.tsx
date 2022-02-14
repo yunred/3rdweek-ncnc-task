@@ -18,7 +18,6 @@ const Home: NextPage = () => {
         <APICompo/>
         */}
       </main>
-      
       <footer className={styles.footer}>
         
       </footer>
