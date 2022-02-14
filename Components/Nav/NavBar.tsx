@@ -8,20 +8,17 @@ import * as C from '/Const/Const';
 import * as H from '/Hooks/Hooks.ts';
 import * as T from '/Types/Types.ts';
 
-const data = {
-    id: 67,
-    name: "카페",
-    discountRate: 50,
-    imageUrl: "https://d1dsr05o5i286u.cloudfront.net/a2402a35-038b-4b68-a152-2cc14dff532c.jpg"
-  };
-  
 
 interface NavDataType{
+  key?: string | number;
+  map: string;
   src: string;
   alt: string;
   width: string;
   height: string;
   href?: string | undefined;
+  items: string;
+  conCategory1s: any;
 }
 
 const NavBar = (): JSX.Element => {
@@ -54,10 +51,10 @@ const NavBar = (): JSX.Element => {
             <div>
                 <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
             </div>
+
+           
         </div>
-        
-      </Link>
-    </nav>
+    </>
   );
 };
 
