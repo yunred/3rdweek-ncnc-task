@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="트리온보딩 Team-16 잘하조의 데모사이트입니다." />
         <link rel="icon" href="/favicon.ico" />
     </Head>
+    <NavBar />
     <Component {...pageProps} />
   </>
   )}
