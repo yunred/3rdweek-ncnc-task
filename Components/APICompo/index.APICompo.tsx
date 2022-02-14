@@ -5,7 +5,20 @@ import * as H from '/Hooks/Hooks.ts';
 import * as T from '/Types/Types.ts';
 import { useState, useEffect } from 'react';
 
-export const InititalProps = (props:T.CategoryType):JSX.Element => {
+const APICompo = ({ InititalProps }:T.APICompoProps) => {
+    console.log(InititalProps);
+    
+    return (
+        <ul>
+            <ul>
+                <StaticProps data= {InititalProps}/>
+            </ul>
+        </ul>
+    )
+}
+
+export const StaticProps = ({ data }:T.CategoryType):JSX.Element => {
+    console.log(data);
     return(
         <>
         <h3>InitialProps</h3>
@@ -13,18 +26,6 @@ export const InititalProps = (props:T.CategoryType):JSX.Element => {
         </>
     )
 }
-
-const APICompo = ({InititalProps}:T.APICompoProps) => {
-    
-    return (
-        <ul>
-            <ul>
-                <InititalProps props= {InititalProps}/>
-            </ul>
-        </ul>
-    )
-}
-export default APICompo
 
 
 /*
@@ -48,3 +49,5 @@ export default APICompo
             </ul>
 
 */
+
+export default APICompo

@@ -7,26 +7,23 @@ import * as C from '/Const/Const';
 import * as H from '/Hooks/Hooks.ts';
 import * as T from '/Types/Types.ts';
 
-const APIEX: NextPage = ({ getInititalProps } :T.APICompoProps ) => {
-  return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <APICompo InititalProps = {getInititalProps}/>
-      </main>
-      <footer className={styles.footer}>
-        
-      </footer>
-    </div>
-  )
+const APIEX: NextPage = ({ InititalProps } :T.APICompoProps ) => {
+    console.log(InititalProps);
+
+    return (
+        <div className={styles.container}>
+            <main className={styles.main}>
+            <APICompo InititalProps = {InititalProps}/>
+            </main>
+            <footer className={styles.footer}>
+            
+            </footer>
+        </div>
+    )
 }
 
-export const getInititalProps : GetStaticProps = async () => {
+export const getStaticProps : GetStaticProps = async () => {
     const InititalProps:T.CategoryType = await H.useFetch(C.CONCATEGORY_API);
-    if (!InititalProps) {
-        return {
-            notFound: true,
-        }
-    }
     return {
         props: {
             InititalProps
