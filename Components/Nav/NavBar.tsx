@@ -5,6 +5,7 @@ import Image from 'next/image'
 import * as C from "/Const/Const.ts";
 import * as H from "/Hooks/Hooks.ts";
 import * as T from '/Types/Types.ts';
+import axios from "axios";
 import { useState, useEffect } from 'react';
 
 const CategoryData = {
@@ -84,28 +85,27 @@ interface NavDataType{
   height: string;
   href?: string | undefined;
   items: string;
+  conCategory1s: any;
 }
 
 const NavBar = (NavData:NavDataType): JSX.Element => {
     const [CONCATEGORY_API, setCONCATEGORY_API] = useState([]);
     useEffect(() => {
         (async () => {
-            let JsonData = await H.useFetch(C.CONCATEGORY_API);
+            let JsonData = await axios(`${C.CONCATEGORY_API}`);
             setCONCATEGORY_API(JsonData.conCategory1s);
         })();
     },[]);
 
+    console.log("마마", setCONCATEGORY_API)
 
   return (
     <>
         <div className={style.navContainer}>
             <div className={style.navContents}>
-                <a className={style.link} href="/">
+                <a className={style.link} href="www.naver.com">
                     <div className="imageBox">
                         <Image src="/images/hamburgermenu.png" alt="seemore" width="18px" height="20px" className="imageContents"/>
-                    </div>
-                    <div className="imageBox">
-                        <Image src="/imgaes/leftarrow.png" alt="seeback" width="18px" height="20px" />
                     </div>
                 </a>
 
