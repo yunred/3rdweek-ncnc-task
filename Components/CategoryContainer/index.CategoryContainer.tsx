@@ -1,8 +1,7 @@
 import style from "Components/CategoryContainer/CategoryContainer.module.css";
-// import Category from 'Components/Category/index.Category';
-import Category from "../Category/index.Category";
-import * as C from '/Const/Const';
-import * as H from '/Hooks/index.ts';
+import Category from "Components/Category/index.Category";
+import * as C from 'Const/Const';
+import * as H from 'Hooks/index.ts';
 import { useState, useEffect } from 'react';
 
 interface CategoryProps {
