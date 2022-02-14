@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import APICompo from '/Components/APICompo/index.APICompo'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -13,7 +14,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        
+        {/* API 통신 예제 컴포넌트입니다.
+        <APICompo/>
+        */}
       </main>
 
       <footer className={styles.footer}>
