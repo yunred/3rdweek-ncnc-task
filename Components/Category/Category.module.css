@@ -1,0 +1,42 @@
+.Container {
+  width: 112px;
+  /* width: 33.33%; */
+  height: 94px;
+  /* height: 8rem; 80px?*/
+  padding: 1px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  color: #333333;
+  text-decoration: none;
+  outline: none;
+}
+
+.link:hover,
+.link:active,
+.link:visited {
+  color: #333333;
+  text-decoration: none;
+  outline: none;
+}
+
+.CategoryContent{
+  transition: transform 0.5s;
+}
+
+.CategoryContent:hover {
+  transform: scale(1.1);
+}
+
+.CategoryImage {
+  width: 43px;
+  height: 43px;
+}
+
+.CategoryName {
+  margin: 5px 0 0 0;
+}
