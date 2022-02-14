@@ -4,13 +4,11 @@ import * as H from "/Hooks/Hooks.ts";
 import styles from '../styles/Home.module.css'
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from '/Components/ProductContainer/index.ProductContainer';
-import NavBar from '../Components/Nav/NavBar';
 
 const Home: NextPage = ({menuCategory,productContent} :any) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <NavBar CategoryData={menuCategory.conCategory1s}/>
         <CategoryContainer CategoryData={menuCategory.conCategory1s}/>
         <div className={styles.middleContent}>
           <span className={styles.contentMessage1}>놓치지 마세요</span>
