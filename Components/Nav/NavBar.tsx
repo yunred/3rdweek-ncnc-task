@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import * as C from 'Const/Const';
 import * as H from 'Hooks/Hooks';
 import * as T from 'Types/Types';
-import HorizontalScroll from 'react-scroll-horizontal'
 
 const SubNavData = [
   {
@@ -66,7 +65,7 @@ const NavBar = (): JSX.Element => {
   
   const routerPath = useRouter().asPath;
 
-  const subTitleNavHandler = (e) =>{
+  const subTitleNavHandler = () =>{
     setButtonClick();
   } 
 
