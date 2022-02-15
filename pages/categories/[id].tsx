@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next'
+import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
 import styles from '/styles/Categories.module.css'
 import * as C from "/Const/Const";
@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
 
 const Categories: NextPage = ({curruntID, categoryProps}) => {
-    console.log(curruntID);
+    console.log(categoryProps);
 
     const router = useRouter();
     console.log(router.asPath);
@@ -23,8 +23,8 @@ const Categories: NextPage = ({curruntID, categoryProps}) => {
     )
   }
   
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const curruntID = context.params.id;
+export const getServerSideProps: GetServerSideProps = async (context:GetServerSidePropsContext) => {
+  const curruntID = context.params? context.params.id: undefined;
   const categoryProps = await H.useFetch(C.CONCATEGORY_API + curruntID + C.NESTED);
   return {
     props: {
