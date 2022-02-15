@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductContent from '../ProductContent/index.ProductContent';
 import { ProductProps } from '../Types/ProductType';
-import { ProductContainerStyle } from 'Components/ProductContainer/style.ProductContainer.ts';
+import style from 'Components/ProductContainer/ProductContainer.module.css';
 
 interface ProductContainerProps {
   ProductData: ProductProps[];
@@ -14,14 +14,13 @@ const ProductContainer = ({
 }: ProductContainerProps) => {
   return (
     <>
-      <div className="PDwarpper">
+      <div className={style.PDwarpper}>
         {ProductData.map((item, index) => (
-          <div className="product_container" key={index}>
+          <div className={style.innerContainer} key={index}>
             <ProductContent ProductData={item} isItemList={isItemList} />
           </div>
         ))}
       </div>
-      <style jsx>{ProductContainerStyle}</style>
     </>
   );
 };
