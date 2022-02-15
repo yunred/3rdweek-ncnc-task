@@ -28,7 +28,7 @@ const QuestionContainer = () => {
   return (
     <div className={style.container}>
       {data.qas.map((item) => {
-        return <Question QuestionsData={item} />;
+        return <Question key={item.id} QuestionsData={item} />;
       })}
     </div>
   );
@@ -44,7 +44,6 @@ const Question = ({ QuestionsData }: { QuestionsData: QuestionProps }) => {
     <div
       style={isOpen ? setHeight : setDefaultHeight}
       className={style.innerContainer}
-      key={QuestionsData.id}
     >
       <div className={style.header}>
         <h3>

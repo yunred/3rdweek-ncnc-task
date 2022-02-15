@@ -1,7 +1,9 @@
-import { NextPage } from "next";
+import { NextPage ,GetServerSideProps } from "next";
 import style from "styles/CustomerCenter.module.css";
 import { useState } from 'react';
 import Questions from "Components/QuestionContainer/index.QuestionContainer";
+import * as H from 'Hooks/Hooks'
+import * as C from 'Const/Const'
 
 enum CustomerCenterContent {
   title = "상담시간 안내",
@@ -14,12 +16,22 @@ enum CustomerCenterContent {
   right = 1,
 }
 
+interface QaProps {
+  id:number,
+  key:string,
+  name:string
+}
+
 const setColor = {color:`#f75656`,borderBottom: `2px solid #f75656`};
 const setDefaultColor = {color:`#333333`,borderBottom: `none`};
 
-const CustomerCenter: NextPage = () => {
+const CustomerCenter: NextPage = ({faqType}:{ faqType:QaProps[]} ) => {
+
+  console.log(faqType);
 
   const [tab,setTab] = useState<number>(0);
+
+  // const [code,setCode] = useState<>();
 
   return (
     <div className={style.Container}>
@@ -45,6 +57,15 @@ const CustomerCenter: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps :GetServerSideProps = async (context) => {
+  const faqType = await H.useFetch(C.FAQTYPE_API);
+  return {
+    props: {
+      faqType : faqType.qaTypes
+    },
+  };
 };
 
 export default CustomerCenter;
