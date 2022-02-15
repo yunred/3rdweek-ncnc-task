@@ -1,5 +1,5 @@
 .wrapperContainer {
-  background-color: #eee;
+  background-color: #fff;
   max-width: 672px;
   margin: auto;
   font-weight: 600;
@@ -31,14 +31,93 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
-.navImage {
-  background-image: none;
+.subTitleWrapper {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-bottom: 1px solid #c4c4c4;
+}
+.NavdataList {
+  width: 835px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  display: block;
+  overflow: Horizontal scroll;
+  padding-left: 3px;
+}
+.NavdataList ::-webkit-scrollbar {
+  display: none;
 }
 
-.subTitleContainer {
-  max-width: 672px;
+.NavdataItem {
+  height: 40px;
+  margin-left: 13px;
+  background-color: transparent;
+}
+
+.CategoryText {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
+.myPageWrap {
   display: flex;
-  flex-wrap: nowrap;
-  overflow: Horizontal scroll;
-  padding-left: 17px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBarIcon {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px;
+  text-decoration: none;
+  height: 50px;
+}
+
+.sideBarline {
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+}
+
+.sideBarIcon:link,
+.sideBarIcon:visited,
+.sideBarIcon:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.sideBarbottom {
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+}
+
+.sideBarLastLine {
+  width: 100%;
+  height: 1220px;
+  background-color: #fff;
+}
+
+.sideBarwrapperContainer {
+  background-color: #fff;
+  font-weight: 600;
+  max-width: 672px;
+  margin: auto;
+  width: 110vw;
+  height: 100vh;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 700;
+}
+
+.customerNavImage {
+  margin-top: 10px;
 }
