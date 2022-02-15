@@ -84,11 +84,15 @@
 .sideBarIcon {
   max-width: 672px;
   display: flex;
-  margin-left: 17px;
   justify-content: space-between;
   padding: 17px;
+  margin-left: 17px;
   text-decoration: none;
   height: 50px;
+}
+
+.sideBarTitle {
+  margin-right: 17px;
 }
 
 .sideBarline {
