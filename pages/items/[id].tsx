@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import * as H from "Hooks/Hooks";
 import * as C from "Const/Const";
 
-import styles from "styles/CustomerCenter.module.css";
+import styles from "styles/Item.module.css";
 import ItemContainer from "Components/ItemContainer/index.ItemContainer";
 import * as T from "Types/Types";
 import Option  from 'Components/Option/index.Option';
