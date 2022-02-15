@@ -66,21 +66,19 @@ const NavBar = ( { brandName } ): JSX.Element => {
                     />
                   </div>
                 ) : routerPath === '/contacts' ? (
-                  <div>
+                  <div className={style.navImage}>
                     <Image
                       src="/images/close.png"
                       alt="seeback"
-                      className={style.customerNavImage}
                       width="20px"
                       height="20px"
                     />
                   </div>
                 ) : (
-                  <div>
+                  <div className={style.navImage}>
                     <Image
                       src="/images/arrowback.png"
                       alt="seeback"
-                      className={style.navImage}
                       width="30px"
                       height="30px"
                     />
