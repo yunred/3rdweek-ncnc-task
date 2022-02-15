@@ -1,14 +1,14 @@
-.wrapper {
+.wrapperContainer {
   background-color: #eee;
   max-width: 672px;
   margin: auto;
-  padding: 17px;
   font-weight: 600;
 }
 
-.container {
+.navContainer {
   display: flex;
   justify-content: space-between;
+  margin-left: 17px;
 }
 
 .navIcon {
@@ -17,8 +17,20 @@
   align-items: center;
 }
 
-.Wrapper {
-  width: 20px;
+.categories {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.navDetailContents {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
+}
+
+.navImage {
+  background-image: none;
 }

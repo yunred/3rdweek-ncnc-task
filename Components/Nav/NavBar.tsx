@@ -64,10 +64,10 @@ const NavBar = (): JSX.Element => {
   const routerPath = useRouter().asPath;
 
   return (
-    <div className={style.navWrapper}>
+    <div className={style.wrapperContainer}>
           <div >
               <Link href="/" passHref> 
-                <div className={style.container}>
+                <div className={style.navContainer}>
                     <a className={style.navIcon} >{routerPath === '/'?  <div>
                         <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px" />
                         </div> :   <div>
