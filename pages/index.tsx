@@ -7,6 +7,7 @@ import ProductContainer from 'Components/ProductContainer/index.ProductContainer
 import Carousel from 'Components/Carousel/index.Carousel';
 import { CategoryListType } from 'Types/Types';
 import { ProductProps } from 'Components/Types/ProductType';
+import CustomerCenter from './CustomerCenter';
 
 interface HomeProps {
   menuCategory: CategoryListType[]
