@@ -231,3 +231,13 @@ button{
   outline:none;
   border:none;
 }
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #333333;
+  text-decoration: none;
+  outline: none;
+}
+
