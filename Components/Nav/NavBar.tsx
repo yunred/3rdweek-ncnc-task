@@ -98,7 +98,7 @@ const NavBar = (): JSX.Element => {
           </div>
         </div>
       ): (
-      <NavSideBar />
+      <NavSideBar setSideBarOpen={setSideBarOpen} />
         )}
     </>
   );

@@ -5,9 +5,9 @@ import css from "styled-jsx/css";
 import Link from "next/link";
 import Image from 'next/image'
 
-const NavSideBar = (): JSX.Element => {
+const NavSideBar = ({setSideBarOpen} : any ): JSX.Element => {
     const goBackHandler = () =>{
-        window.location.reload(false);
+        setSideBarOpen(true);
     }
 
     return (
@@ -18,7 +18,7 @@ const NavSideBar = (): JSX.Element => {
                 </div>
                 <div className={style.sideBarline} /> 
 
-                <Link href={`/brands/63`} >
+                <Link href={`/CustomerCenter`} >
                         <a className={style.sideBarIcon} > 
                             <div> 고객센터 </div> 
                             <div> > </div> 
