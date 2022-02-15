@@ -6,10 +6,13 @@ import * as H from "Hooks/Hooks";
 import { useState, useEffect } from 'react';
 import CategoryContainer from 'Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
+import NavBar from 'Components/Nav/NavBar';
 
 const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1Props}) => {
     const router = useRouter();
     return (
+      <>
+      <NavBar/>
       <div className={styles.container}>
         <main className={styles.main}>
           {curruntID !== "1"?
@@ -22,6 +25,7 @@ const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1P
           
         </footer>
       </div>
+      </>
     )
   }
   
