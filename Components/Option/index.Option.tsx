@@ -92,7 +92,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
   }
 
   return (
-    <div className={style.container}>
+    <div style={{background : `${isOpen ? "#ccc" :"#f75656"}`}} className={style.container}>
       <div
         onClick={() => {
           setIsOpen(!isOpen);
@@ -104,8 +104,8 @@ const Option = ({ options, discountRate }: OptionProps) => {
       {item && <div className={style.selectedItem}>
         <p>{getTimes(item.expireAt)}/{getPrice(item.price)}</p>
         <button onClick={()=>{setItem("")}}>X</button></div> }
-      <div style={isOpen ? open : close} className={style.overflowContainer}>
-        <div className={style.innerContainer}>
+      <div className={style.overflowContainer}>
+        <div style={isOpen ? open : close} className={style.innerContainer}>
           <div className={style.innerTitle}></div>
           <ul>
             {options &&

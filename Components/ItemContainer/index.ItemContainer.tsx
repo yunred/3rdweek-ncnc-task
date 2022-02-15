@@ -4,7 +4,7 @@ import * as T from "Types/Types";
 
 import style from "Components/ItemContainer/ItemContainer.module.css";
 import Option from "Components/Option/index.Option";
-import ProductContent from 'Components/ProductContent/index.ProductContent';
+import ProductContent from "Components/ProductContent/index.ProductContent";
 
 interface ItemContainerProps {
   itemData: T.ItemProps;
@@ -23,7 +23,6 @@ interface WarningData {
 }
 
 const ItemContainer = ({ itemData }: ItemContainerProps) => {
-
   const [warningData, setWaningData] = useState<WarningData>();
 
   const getWarning = () => {
@@ -45,22 +44,32 @@ const ItemContainer = ({ itemData }: ItemContainerProps) => {
   };
 
   useEffect(() => {
-    getWarning();
+    if (itemData.warning !== null) getWarning();
   }, [itemData]);
 
   return (
     <div className={style.container}>
-        <ProductContent ProductData={itemData}/>
+      <ProductContent ProductData={itemData} />
       <div className={style.body}>
         <div>
-          <h4 className={style.listHeader}>{info.warning}</h4>
-          {warningData && <Warning warnList={warningData.warn} />}
-          <h4>{info.market}</h4>
-          {warningData && <Warning warnList={warningData.market} />}
-          <h4>{info.refund}</h4>
-          {warningData && <Warning warnList={warningData.refund} />}
+          {warningData && (
+            <>
+              <h4 className={style.listHeader}>{info.warning}</h4>
+              <Warning warnList={warningData.warn} />
+              <h4>{info.market}</h4>
+              <Warning warnList={warningData.market} />
+              <h4>{info.refund}</h4>
+              <Warning warnList={warningData.refund} />{" "}
+            </>
+          )}
         </div>
       </div>
+      {itemData && (
+        <Option
+          options={itemData.options}
+          discountRate={itemData.discountRate}
+        />
+      )}
     </div>
   );
 };

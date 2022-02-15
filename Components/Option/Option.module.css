@@ -7,7 +7,6 @@
 
 .overflowContainer {
   transition: transform 0.5s;
-  overflow: hidden;
 }
 
 .innerContainer {
