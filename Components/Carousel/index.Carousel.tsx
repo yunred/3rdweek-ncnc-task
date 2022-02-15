@@ -56,10 +56,11 @@ const Carousel = () => {
   const handleTouchStart = (e: TouchEventType) => {
     e.stopPropagation();
     setStartX(e.changedTouches[0].pageX);
+    setIsStop(true);
   };
   const handleTouchEnd = (e: TouchEventType) => {
-    //e.preventDefault();
     e.stopPropagation();
+    setIsStop(false);
     endX = e.changedTouches[0].pageX;
     if (startX) {
       let diffX = endX - startX;
@@ -107,13 +108,12 @@ const Carousel = () => {
     setIsStop(false);
   };
 
-  //무한 슬라이드 구현
-  // useInterval(
-  //   () => {
-  //     onRightDrag();
-  //   },
-  //   isStop ? null : 2000
-  // );
+  useInterval(
+    () => {
+      onRightDrag();
+    },
+    isStop ? null : 3000
+  );
 
   return (
     <div className={style.Container}>
@@ -121,10 +121,10 @@ const Carousel = () => {
         className={style.InnerContainer}
         onMouseDown={onImgDragStart}
         onMouseUp={onImgDragEnd}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
         onMouseOver={onAutoSlideStop}
         onMouseOut={onAutoSlideStart}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{
           transition: `${isSideImg ? '0ms' : 'transform 1s ease'}`,
           transform: `translate(${step * 672 * -1}px)`,

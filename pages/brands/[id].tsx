@@ -5,6 +5,7 @@ import * as C from "/Const/Const";
 import * as H from "/Hooks/Hooks.ts";
 import { useState, useEffect } from 'react';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
+import css from 'styled-jsx/css';
 
 const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) => {
     const [brandsList, setBrandsList] = useState([]);
@@ -12,6 +13,7 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
     const [brandProductList, setbrandProductList] = useState([]);
     const [productInfo, setproductInfo] = useState({});
     const [containerProps, setContainerProps] = useState([]);
+    const [sortMode, setSortMode] = useState('priority')
     const router = useRouter();
     useEffect(()=>{
         (async()=> {
@@ -46,12 +48,42 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
     return (
       <div className={styles.container}>
         <main className={styles.main}>
-          <ProductContainer ProductData = {containerProps.slice(1)}/>
+          <div className='warpper'>
+            {containerProps.length < 10? <div className="ProductStock"><span className='stock'>{`0${containerProps.length -1}`}</span>개의 상품</div>
+            :<div className="ProductStock"><span className='stock'>{containerProps.length - 1}</span >개의 상품</div>
+            }
+          </div>
+          <ProductContainer ProductData = {containerProps} isItemList = {true}/>
         </main>
         <footer className={styles.footer}>
           
         </footer>
+        <style jsx>{`
+          .warpper{
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            background-color: #fff;
+          }
+
+          .ProductStock{
+            flex-grow: 1;
+            align-self: center;
+            color: #808080;
+            font-family: Apple SD Gothic Neo;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+          }
+          .stock{
+            color: #303030;
+            font-size: 16px;
+            font-weight: 600;
+          }
+          }
+        `}</style>
       </div>
+      
     )
   }
   
