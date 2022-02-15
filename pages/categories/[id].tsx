@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 
-const Categories: NextPage = ({curruntID, categoryProps, category1Props}) => {
+const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1Props}) => {
     const router = useRouter();
     return (
       <div className={styles.container}>
@@ -31,6 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (context:GetServerSi
   const category1Props = await H.useFetch(C.CONITEM_API + C.SOON);
   return {
     props: {
+      currentPage: 'categories',
       curruntID: curruntID,
       categoryProps: categoryProps.conCategory1.conCategory2s,
       category1Props: category1Props.conItems.sort((a, b)=> a.id - b.id)
