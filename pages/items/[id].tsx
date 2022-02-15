@@ -30,7 +30,7 @@ const Items: NextPage<ItemPageProps> = ({ currentId }) => {
       <main className={styles.main}>
         {itemData && <ItemContainer itemData={itemData} />}
       </main>
-      <footer className={styles.footer}>{itemData && <Option options={itemData.options} discountRate={itemData.discountRate}/>}</footer>
+      <footer className={styles.footer}></footer>
     </div>
   );
 };

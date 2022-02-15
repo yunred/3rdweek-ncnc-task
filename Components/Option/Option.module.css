@@ -1,13 +1,14 @@
 .container {
   bottom: 0;
-  width: 100%;
+  width: 672px;
   height: 80px;
   background: #f75656;
+  position: fixed;
+  margin: auto;
 }
 
 .overflowContainer {
   transition: transform 0.5s;
-  overflow: hidden;
 }
 
 .innerContainer {
