@@ -1,4 +1,4 @@
-.TotalContainer {
+.wrapper {
   background-color: #eee;
   max-width: 672px;
   margin: auto;
@@ -6,12 +6,12 @@
   font-weight: 600;
 }
 
-.NavContainer {
+.container {
   display: flex;
   justify-content: space-between;
 }
 
-.NavImage {
+.navIcon {
   display: flex;
   justify-content: center;
   align-items: center;
