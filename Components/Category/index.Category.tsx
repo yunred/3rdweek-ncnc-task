@@ -1,7 +1,7 @@
 import style from "Components/Category/Category.module.css";
 import css from "styled-jsx/css";
 import Link from "next/link";
-import { CategoryListType } from '/Types/Types';
+import { CategoryListType } from 'Types/Types';
 
 const Category = ({CategoryData}: {CategoryData: CategoryListType}): JSX.Element => {
   return (
