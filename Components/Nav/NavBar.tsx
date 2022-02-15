@@ -18,7 +18,7 @@ interface NavDataType{
   height: string;
   href?: string | undefined;
   items: string;
-  conCategory1s: any;
+  Navdata: string[];
 }
 
 const NavBar = (): JSX.Element => {
@@ -27,8 +27,8 @@ const NavBar = (): JSX.Element => {
     (async()=> {
         const APIdata = await H.useFetch(C.CONCATEGORY_API);
         const temp = {};
-        APIdata.conCategory1s.forEach(ele => {
-          temp[ele.id] = ele.name;
+        APIdata.conCategory1s.forEach(e => {
+          temp[e.id] = e.name;
         });
         setNavData(temp);
     })();
@@ -37,22 +37,21 @@ const NavBar = (): JSX.Element => {
   const routerPath = useRouter().asPath;
 
   return (
-    <nav>
-      <Link href="/" passHref> 
-        <div className="NavContainer">
-            <a>{routerPath === '/'?  <button>
-                <Image src="/images/hamburgermenu.png" alt="seemore" width="50%" height="50%" />
-                </button>:  <button>
-                <Image src="/images/leftarrow.png" alt="seeback" width="50%" height="50%"  />
-                </button> }               
-            </a>
-            <div>
-                <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
-            </div>
-    </div>
-    </Link>
-    
- 
+    <nav className={style.container}>
+        <Link href="/" passHref> 
+          <div className={style.navContainer}>
+              <a className={style.navImage} >{routerPath === '/'?  <div>
+                  <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px" />
+                  </div> :   <div>
+                  <Image src="/images/arrowback.png" alt="seeback" className={style.navImage} width="30px" height="30px"/>
+                  </div> }               
+              </a>
+              <div>
+                  <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
+              </div>
+              <div></div>
+          </div>
+        </Link>
     </nav>
   );
 };

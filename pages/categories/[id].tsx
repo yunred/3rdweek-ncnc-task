@@ -9,7 +9,7 @@ const Categories: NextPage = () => {
       <div className={styles.container}>
         <main className={styles.main}>
         </main>
-            {router.asPath === "/categories/1"? <h3>떙철이</h3> : <h3>떙철이 아님</h3>}
+            {/* {router.asPath === "/categories/1"? <h3>떙철이</h3> : <h3>땡철이 아님</h3>} */}
         <footer className={styles.footer}>
           
         </footer>

@@ -1,11 +1,19 @@
-.navContainer {
-  display: flex;
-  flex-direction: column;
+.container {
+  /* padding: 0 2rem; */
+  background-color: #eee;
+  max-width: 672px;
+  margin: auto;
 }
 
-.navContents {
+.navContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.navImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .categories {
@@ -22,6 +30,6 @@
   grid-template-columns: repeat(9, 1fr);
 }
 
-/* .imageBox {
-  margin-left: 50px;
-} */
+.navImage {
+  background-image: none;
+}
