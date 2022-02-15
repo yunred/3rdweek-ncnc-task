@@ -5,14 +5,19 @@ export const ProductContentStyle = css`
     user-select: none;
     cursor: pointer;
   }
+  .contentWarpper{
+    width: 100%;
+  }
 
   .container {
     display: flex;
     flex-direction: row;
     height: 107px;
-    width: 375px;
+    width: 100%;
     padding: 17px 0 17px 17px;
-    border-bottom: solid 1px #f1f3f4;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: #eee;
     background-color: #ffffff;
   }
   .product_img {
