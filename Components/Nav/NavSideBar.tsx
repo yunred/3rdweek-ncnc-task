@@ -18,7 +18,7 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
                 </div>
                 <div className={style.sideBarline} /> 
 
-                <Link href={`/CustomerCenter`} >
+                <Link href={`/contacts`} >
                         <a className={style.sideBarIcon} > 
                             <div> 고객센터 </div> 
                             <div> > </div> 
