@@ -100,6 +100,7 @@ const NavBar = (): JSX.Element => {
                       alt="seemore"
                       width="30px"
                       height="30px"
+                      className={style.customerNavImage}
                     />
                   </div>
                 ) : routerPath === '/CustomerCenter' ? (
