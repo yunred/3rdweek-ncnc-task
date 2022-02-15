@@ -1,5 +1,5 @@
 import style from 'Components/Carousel/Carousel.module.css';
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, TouchEvent } from 'react';
 import useInterval from '../../Hooks/useInterval';
 
 const ImageData = [
@@ -31,15 +31,37 @@ const Carousel = () => {
   const [isSideImg, setIsSideImg] = useState<boolean>(false);
   const [isStop, setIsStop] = useState<boolean>(false);
   type MouseEventType = MouseEvent<HTMLElement>;
+  type TouchEventType = TouchEvent<HTMLElement>;
 
   let endX;
   const onImgDragStart = (e: MouseEventType) => {
-    e.preventDefault();
     setStartX(e.pageX);
   };
+  const handleTouchStart = (e: TouchEventType) => {
+    e.stopPropagation();
+    setStartX(e.changedTouches[0].pageX);
+  };
+
   const onImgDragEnd = (e: MouseEventType) => {
     e.preventDefault();
     endX = e.pageX;
+    if (startX) {
+      let diffX = endX - startX;
+      if (diffX > 0 && Math.abs(diffX) > 100) {
+        onLeftDrag();
+        return;
+      }
+      if (diffX < 0 && Math.abs(diffX) > 100) {
+        onRightDrag();
+        return;
+      }
+    }
+  };
+
+  const handleTouchEnd = (e: TouchEventType) => {
+    //e.preventDefault();
+    e.stopPropagation();
+    endX = e.changedTouches[0].pageX;
     if (startX) {
       let diffX = endX - startX;
       if (diffX > 0 && Math.abs(diffX) > 100) {
@@ -102,6 +124,8 @@ const Carousel = () => {
         onMouseUp={onImgDragEnd}
         onMouseOver={onAutoSlideStop}
         onMouseOut={onAutoSlideStart}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{
           transition: `${isSideImg ? '0ms' : 'transform 1s ease'}`,
           transform: `translate(${step * 672 * -1}px)`,
