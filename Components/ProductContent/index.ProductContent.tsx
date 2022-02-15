@@ -3,14 +3,15 @@ import Image from 'next/image';
 import { ProductContentStyle } from './style.ProductContent';
 import { ProductProps } from '../Types/ProductType';
 import Link from 'next/link';
+interface ProductContentProps {
+  ProductData: ProductProps;
+  isItemList?: boolean;
+}
 
-const ProductContent = ({ ProductData }: ProductProductData) => {
-  //select === soon :<Link href={`/items/${ProductData.id}`}>
-  //select === brands : <Link href={`/items/${ProductData.id}`}>
-  //select === items : Link 없음
+const ProductContent = ({ ProductData, isItemList }: ProductContentProps) => {
   return (
     <>
-      <div className='contentWarpper'>
+      <div className="contentWarpper">
         {ProductData && (
           <Link href={`/items/${ProductData.id}`}>
             <div className="container">
@@ -20,10 +21,17 @@ const ProductContent = ({ ProductData }: ProductProductData) => {
                 alt={ProductData.name}
               />
               <div className="product_info_container">
-                <span className="product_category_name">
-                  {ProductData.conCategory2.name}
+                {!isItemList && (
+                  <span className="product_category_name">
+                    {ProductData.conCategory2.name}
+                  </span>
+                )}
+                <span
+                  className="product_name"
+                  style={{ marginTop: `${isItemList ? '14px' : '0px'}` }}
+                >
+                  {ProductData.name}
                 </span>
-                <span className="product_name">{ProductData.name}</span>
                 <div className="price_container">
                   <span className="discount_rate">
                     {ProductData.discountRate}%
