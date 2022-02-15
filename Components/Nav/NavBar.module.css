@@ -31,12 +31,39 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
-.subTitleContainer {
-  max-width: 672px;
+.subTitleWrapper {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-bottom: 1px solid #c4c4c4;
+}
+.NavdataList {
+  width: 835px;
   display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  flex-direction: row;
   flex-wrap: nowrap;
+  display: block;
   overflow: Horizontal scroll;
-  padding-left: 17px;
+  padding-left: 3px;
+}
+.NavdataList ::-webkit-scrollbar {
+  display: none;
+}
+
+.NavdataItem {
+  height: 40px;
+  margin-left: 13px;
+  background-color: transparent;
+}
+
+.CategoryText {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 500;
 }
 
 .myPageWrap {

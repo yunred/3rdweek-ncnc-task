@@ -28,3 +28,49 @@ export interface QuestionContainerProps {
     answer: string;
     id: number;
 }
+
+export interface ConCategory2 {
+    id: number;
+    name: string;
+    adminUserId: number;
+    priority: number;
+    createdAt: string;
+    conCategory1Id: number;
+    info: string | null;
+    imageUrl: string;
+    conCategory1: ConCategory1;
+}
+
+export interface ConCategory1 {
+    id: number;
+    name: string;
+    createdAt: string;
+    priority: number;
+    discountRate: number;
+    info: string;
+    imageUrl: string;
+}
+
+export interface options{
+    count: string;
+    expireAt: string;
+    sellingPrice: string;
+}
+
+export interface ItemProps {
+    conCategory2: ConCategory2;
+    conCategory2Id: number;
+    discountRate: number;
+    id: number;
+    imageUrl: string;
+    info: null | string;
+    information: string;
+    isOnlyAccount: number;
+    minSellingPrice: number;
+    name: string;
+    ncSellingPrice: number;
+    options: options[];
+    originalPrice: number;
+    tip: null | string;
+    warning:string;
+}
