@@ -31,7 +31,7 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
-.TopCategories{
+.TopCategories {
   display: block;
   box-sizing: border-box;
   font-weight: 600;
@@ -58,8 +58,6 @@
   border-bottom: 1px solid #ccc;
 }
 
-
-
 .NavdataItem {
   height: 40px;
   padding: 10px 14px;
@@ -75,14 +73,18 @@
 }
 
 .myPageWrap {
+  max-width: 672px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 17px;
+  padding-left: 17px;
 }
 
 .sideBarIcon {
+  max-width: 672px;
   display: flex;
+  margin-left: 17px;
   justify-content: space-between;
   padding: 17px;
   text-decoration: none;
@@ -130,7 +132,4 @@
 .noneImage {
   width: 47px;
   height: 47px;
-}
-
-.customerNavImage {
 }

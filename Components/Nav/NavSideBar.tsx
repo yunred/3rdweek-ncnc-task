@@ -32,7 +32,6 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
                             <Image
                             src="/images/arrowRightIcon.png"
                             alt="seeback"
-                            className={style.customerNavImage}
                             width="20px"
                             height="20px"
                             />
