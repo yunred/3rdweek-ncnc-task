@@ -75,12 +75,12 @@ const getPrice = (str: string): string => {
   return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 };
 
-const open = { transform: `translateY(500px)` };
-const close = { transform: `translateY(-330px)` };
+const open = { transform: `translateY(0px)` };
+const close = { transform: `translateY(-350px)` };
 
 const Option = ({ options, discountRate }: OptionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [item, setItem] = useState<Item>();
+  const [item, setItem] = useState<Item | null>();
 
   const handleSelect = (item: T.Options) => {
     const newState = {
@@ -102,7 +102,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
         }}
         className={style.title}
       >
-        {isOpen ? optionsContent.title : optionsContent.buy}
+        {isOpen ? optionsContent.buy : optionsContent.title }
       </div>
       {item && (
         <div className={style.selectedItem}>
@@ -111,10 +111,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
           </p>
           <button
             onClick={() => {
-              setItem({
-                expireAt: "",
-                price: "",
-              });
+              setItem(null);
             }}
           >
             X
@@ -123,7 +120,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
       )}
       <div style={isOpen ? open : close} className={style.overflowContainer}>
         <div className={style.innerContainer}>
-          <div className={style.innerTitle}></div>
+          <div className={style.innerTitle}>ddddd</div>
           <ul>
             {options &&
               options.map((item, index) => {
