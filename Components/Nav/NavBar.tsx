@@ -39,14 +39,10 @@ const SubNavData = [
   },
   {
     idx: 7,
-    title : "외식,분식",
-  },
-  {
-    idx: 8,
     title : "백화점,주유,뷰티",
   },
   {
-    idx: 9,
+    idx: 8,
     title : "휴대폰 데이터",
   },
 ];
@@ -58,8 +54,8 @@ const NavBar = (): JSX.Element => {
     (async()=> {
         const APIdata = await H.useFetch(C.CONCATEGORY_API);
         const temp = {};
-        APIdata.conCategory1s.forEach(e => {
-          temp[e.id] = e.name;
+        APIdata.conCategory1s.forEach((els : any) => {
+          temp[els.id] = els.name;
         });
         setNavData(temp);
     })();
@@ -85,8 +81,8 @@ const NavBar = (): JSX.Element => {
                 </div>
               </Link>
           </div>
-          <div>
-              {SubNavData.map((e, idx:number)=><p key={e.idx} className="subNaveName">{routerPath === '/'? null : <div>{e.title}</div> }</p>)}      
+          <div className="Wrapper">
+              {SubNavData.map((e, idx:number)=><p key={e.idx} >{routerPath === '/'? null : <div>{e.title}</div> }</p>)}      
           </div>
     </div>
   );
