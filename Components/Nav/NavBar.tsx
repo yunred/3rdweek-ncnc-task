@@ -44,16 +44,15 @@ const NavBar = (): JSX.Element => {
   
   const routerPath = useRouter().asPath;
 
-
   return (
-    <div className={style.totalContainer}>
-          <div className={style.container}>
+    <div className={style.TotalContainer}>
+          <div >
               <Link href="/" passHref> 
-                <div className={style.navContainer}>
-                    <a className={style.navImage} >{routerPath === '/'?  <div>
+                <div className={style.NavContainer}>
+                    <a className={style.NavImage} >{routerPath === '/'?  <div>
                         <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px" />
                         </div> :   <div>
-                        <Image src="/images/arrowback.png" alt="seeback" className={style.navImage} width="30px" height="30px"/>
+                        <Image src="/images/arrowback.png" alt="seeback" className={style.NavImage} width="30px" height="30px"/>
                         </div> }               
                     </a>
                     <div>
@@ -64,7 +63,7 @@ const NavBar = (): JSX.Element => {
               </Link>
           </div>
           <div>
-              <p>{routerPath === '/'? null : Navdata[routerPath.slice(12)]  }</p>
+              <p>{routerPath === '/'? null : Navdata[routerPath.slice(12)]  }</p>      
           </div>
     </div>
   );

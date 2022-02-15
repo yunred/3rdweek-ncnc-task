@@ -1,4 +1,4 @@
-.totalContainer {
+.TotalContainer {
   background-color: #eee;
   max-width: 672px;
   margin: auto;
@@ -6,12 +6,12 @@
   font-weight: 600;
 }
 
-.navContainer {
+.NavContainer {
   display: flex;
   justify-content: space-between;
 }
 
-.navImage {
+.NavImage {
   display: flex;
   justify-content: center;
   align-items: center;
