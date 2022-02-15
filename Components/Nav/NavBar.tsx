@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import * as C from 'Const/Const';
 import * as H from 'Hooks/Hooks';
 import * as T from 'Types/Types';
+import NavSideBar from './NavSideBar'
 
 const SubNavData = [
   {
@@ -50,6 +51,7 @@ const SubNavData = [
 const NavBar = (): JSX.Element => {
   const [Navdata, setNavData] = useState({});
   const [buttonClick, setButtonClick] = useState("")
+  const [isSideBarOpen, setSideBarOpen] = useState<boolean>(true);
   const CategoryData = H.useFetch(C.CONCATEGORY_API);
 
   useEffect(()=>{
@@ -63,18 +65,20 @@ const NavBar = (): JSX.Element => {
     })();
   },[]);
   
+
   const routerPath = useRouter().asPath;
 
-  const subTitleNavHandler = () =>{
-    setButtonClick();
-  } 
 
   const helpCenterHandler = () =>{
-    
+    setSideBarOpen(false);
   }
+
   
+
   return (
-    <div className={style.wrapperContainer}>
+      <>
+      {isSideBarOpen ? (
+        <div className={style.wrapperContainer}>
               <Link href="/" passHref> 
                 <div className={style.navContainer}>
                     <a className={style.navIcon} >{routerPath === '/'?  <div onClick={helpCenterHandler}>
@@ -89,10 +93,14 @@ const NavBar = (): JSX.Element => {
                     <div></div>
                 </div>
               </Link>
-              <div className={style.subTitleContainer} onClick={subTitleNavHandler}>
+              <div className={style.subTitleContainer}>
                     {SubNavData.map((e, idx:number)=><p key={e.idx}>{routerPath === '/'? null : <button><a >{e.title}</a> </button>}</p>)} 
           </div>
-    </div>
+        </div>
+      ): (
+      <NavSideBar setSideBarOpen={setSideBarOpen} />
+        )}
+    </>
   );
 }
 export default NavBar;
