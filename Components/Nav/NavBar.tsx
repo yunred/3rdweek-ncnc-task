@@ -81,20 +81,23 @@ const NavBar = (): JSX.Element => {
         <div className={style.wrapperContainer}>
               <Link href="/" passHref> 
                 <div className={style.navContainer}>
-                    <a className={style.navIcon} >{routerPath === '/'?  <div onClick={helpCenterHandler}>
+                    <a className={style.navIcon} >{routerPath === '/'?  (<div onClick={helpCenterHandler}>
                         <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px"/>
-                        </div> :   <div>
-                        <Image src="/images/arrowback.png" alt="seeback" className={style.NavImage} width="30px" height="30px"/>
-                        </div> }               
+                        </div>) :  routerPath === '/CustomerCenter' ?  (<div>
+                        <Image src="/images/close.png" alt="seeback" className={style.customerNavImage} width="20px" height="20px"/>
+                        </div>) : (<div>
+                        <Image src="/images/arrowback.png" alt="seeback" className={style.navImage} width="30px" height="30px"/>
+                        </div>)
+                         }               
                     </a>
                     <div>
-                        <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)]  }</p>
+                        <p>{routerPath === '/'? "니콘내콘" :  routerPath === '/CustomerCenter' ? "고객센터" : Navdata[routerPath.slice(12)]  }</p>
                     </div>
                     <div></div>
                 </div>
               </Link>
               <div className={style.subTitleContainer}>
-                    {SubNavData.map((e, idx:number)=><p key={e.idx}>{routerPath === '/'? null : <button><a >{e.title}</a> </button>}</p>)} 
+                    {SubNavData.map((e, idx:number)=><p key={e.idx}>{routerPath === '/'? null : routerPath === '/CustomerCenter' ? null : <button><a >{e.title}</a> </button>}</p>)} 
           </div>
         </div>
       ): (
