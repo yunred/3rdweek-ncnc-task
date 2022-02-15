@@ -1,0 +1,63 @@
+.ContentWarpper {
+  width: 100%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+  height: 107px;
+  width: 100%;
+  padding: 17px 0 17px 17px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: #eee;
+  background-color: #ffffff;
+}
+.ProductImg {
+  width: 74px;
+  height: 74px;
+  border-radius: 5px;
+}
+.ProductInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 17px;
+  margin-top: 3px;
+}
+.ProductCategoryName {
+  font-size: 14px;
+  line-height: 14px;
+  color: #808080;
+  margin-bottom: 7px;
+}
+.ProductName {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 13px;
+}
+.PriceContainer {
+  display: flex;
+  margin-left: 1px;
+}
+.DiscountRate {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ff5757;
+  margin-right: 9px;
+}
+.SellingPrice {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-right: 6px;
+}
+.OriginalPrice {
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 1px;
+  color: #808080;
+  text-decoration: line-through;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ProductContentStyle } from './style.ProductContent';
+import style from 'Components/ProductContent/ProductContent.module.css';
 import { ProductProps } from '../Types/ProductType';
 import Link from 'next/link';
 interface ProductContentProps {
@@ -11,38 +11,38 @@ interface ProductContentProps {
 const ProductContent = ({ ProductData, isItemList }: ProductContentProps) => {
   return (
     <>
-      <div className="contentWarpper">
+      <div className={style.ContentWarpper}>
         {ProductData && (
           <Link href={`/items/${ProductData.id}`}>
-            <div className="container">
+            <div className={style.Container}>
               <img
-                className="product_img"
+                className={style.ProductImg}
                 src={ProductData.imageUrl}
                 alt={ProductData.name}
               />
-              <div className="product_info_container">
+              <div className={style.ProductInfo}>
                 {!isItemList && (
-                  <span className="product_category_name">
+                  <span className={style.ProductCategoryName}>
                     {ProductData.conCategory2.name}
                   </span>
                 )}
                 <span
-                  className="product_name"
+                  className={style.ProductName}
                   style={{ marginTop: `${isItemList ? '14px' : '0px'}` }}
                 >
                   {ProductData.name}
                 </span>
-                <div className="price_container">
-                  <span className="discount_rate">
+                <div className={style.PriceContainer}>
+                  <span className={style.DiscountRate}>
                     {ProductData.discountRate}%
                   </span>
-                  <span className="selling_price">
+                  <span className={style.SellingPrice}>
                     {ProductData.minSellingPrice
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                     원
                   </span>
-                  <span className="original_price">
+                  <span className={style.OriginalPrice}>
                     {ProductData.originalPrice
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -54,7 +54,6 @@ const ProductContent = ({ ProductData, isItemList }: ProductContentProps) => {
           </Link>
         )}
       </div>
-      <style jsx>{ProductContentStyle}</style>
     </>
   );
 };
