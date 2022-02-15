@@ -2,7 +2,7 @@ export interface CategoryType  {
     conCategory1s:CategoryListType[]
 }
 
-interface CategoryListType {
+export interface CategoryListType {
     id:number,
     name: string,
     discountRate:number,
