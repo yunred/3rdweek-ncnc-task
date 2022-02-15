@@ -134,7 +134,7 @@ const NavBar = (): JSX.Element => {
                     : Navdata[routerPath.slice(12)]}
                 </p>
               </div>
-              <div></div>
+              <div className={style.noneImage}></div>     
             </div>
           </Link>
           <section className={style.TopCategories}>

@@ -22,7 +22,7 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
                       height="20px"
                     />
                     <p>마이페이지</p>
-                    <div />       
+                    <div className={style.noneImage}></div>       
                 </div>
                 <div className={style.sideBarline} /> 
 
