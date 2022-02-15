@@ -1,24 +1,29 @@
 import type { GetServerSideProps, NextPage } from 'next'
-import type { NextPage, GetServerSideProps } from 'next'
 import * as C from "/Const/Const";
 import * as H from "/Hooks/Hooks.ts";
 import styles from '../styles/Home.module.css'
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from '/Components/ProductContainer/index.ProductContainer';
 import Carousel from '/Components/Carousel/index.Carousel';
+import { CategoryListType } from '../Types/Types';
+import { ProductProps } from '../Components/Types/ProductType';
 
-const Home: NextPage = ({ menuCategory, productContent }: any) => {
+interface HomeProps {
+  menuCategory: CategoryListType[]
+  productContent: ProductProps[]
+}
+
+const Home:NextPage<HomeProps> = ({ menuCategory, productContent }) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <Carousel/>
-        <CategoryContainer CategoryData={menuCategory.conCategory1s}/>
-        <CategoryContainer CategoryData={menuCategory.conCategory1s} />
+        <CategoryContainer CategoryData={menuCategory}/>
         <div className={styles.middleContent}>
           <span className={styles.contentMessage1}>놓치지 마세요</span>
           <span className={styles.contentMessage2}>오늘의 땡처리콘!</span>
         </div>
-        <ProductContainer ProductData={productContent.conItems} />
+        <ProductContainer ProductData={productContent} />
       </main>
 
       <footer className={styles.footer}></footer>
@@ -32,8 +37,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      menuCategory: menuCategory,
-      productContent: productContent,
+      menuCategory: menuCategory.conCategory1s,
+      productContent: productContent.conItems,
     },
   };
 };
