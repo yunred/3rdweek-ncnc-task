@@ -1,8 +1,9 @@
-.container {
-  /* padding: 0 2rem; */
+.totalContainer {
   background-color: #eee;
   max-width: 672px;
   margin: auto;
+  padding: 17px;
+  font-weight: 600;
 }
 
 .navContainer {
@@ -28,8 +29,4 @@
   list-style: none;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-}
-
-.navImage {
-  background-image: none;
 }

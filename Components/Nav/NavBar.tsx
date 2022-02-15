@@ -8,21 +8,29 @@ import * as C from '/Const/Const';
 import * as H from '/Hooks/Hooks.ts';
 import * as T from '/Types/Types.ts';
 
+// interface NavDataType{
+//   key?: string | number;
+//   map: string;
+//   src: string;
+//   alt: string;
+//   width: string;
+//   height: string;
+//   href?: string | undefined;
+//   items: string;
+//   Navdata: string[];
+//   temp: any;
+//   id: number;
+// }
 
-interface NavDataType{
-  key?: string | number;
-  map: string;
-  src: string;
-  alt: string;
-  width: string;
-  height: string;
-  href?: string | undefined;
-  items: string;
-  Navdata: string[];
+interface CategoryProps {
+  id: number;
+  name: string;
 }
+
 
 const NavBar = (): JSX.Element => {
   const [Navdata, setNavData] = useState({});
+
   useEffect(()=>{
     (async()=> {
         const APIdata = await H.useFetch(C.CONCATEGORY_API);
@@ -36,24 +44,29 @@ const NavBar = (): JSX.Element => {
   
   const routerPath = useRouter().asPath;
 
-  return (
-    <nav className={style.container}>
-        <Link href="/" passHref> 
-          <div className={style.navContainer}>
-              <a className={style.navImage} >{routerPath === '/'?  <div>
-                  <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px" />
-                  </div> :   <div>
-                  <Image src="/images/arrowback.png" alt="seeback" className={style.navImage} width="30px" height="30px"/>
-                  </div> }               
-              </a>
-              <div>
-                  <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
-              </div>
-              <div></div>
-          </div>
-        </Link>
-    </nav>
-  );
-};
 
+  return (
+    <div className={style.totalContainer}>
+          <div className={style.container}>
+              <Link href="/" passHref> 
+                <div className={style.navContainer}>
+                    <a className={style.navImage} >{routerPath === '/'?  <div>
+                        <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px" />
+                        </div> :   <div>
+                        <Image src="/images/arrowback.png" alt="seeback" className={style.navImage} width="30px" height="30px"/>
+                        </div> }               
+                    </a>
+                    <div>
+                        <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
+                    </div>
+                    <div></div>
+                </div>
+              </Link>
+          </div>
+          <div>
+              <p>{routerPath === '/'? null : Navdata[routerPath.slice(12)]  }</p>
+          </div>
+    </div>
+  );
+}
 export default NavBar;
