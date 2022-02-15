@@ -1,10 +1,10 @@
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
-import styles from '/styles/Categories.module.css'
-import * as C from "/Const/Const";
-import * as H from "/Hooks/Hooks.ts";
+import styles from 'styles/Categories.module.css'
+import * as C from "Const/Const";
+import * as H from "Hooks/Hooks";
 import { useState, useEffect } from 'react';
-import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
+import CategoryContainer from 'Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 
 const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1Props}) => {
@@ -13,7 +13,7 @@ const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1P
       <div className={styles.container}>
         <main className={styles.main}>
           {curruntID !== "1"?
-          <CategoryContainer CategoryData={categoryProps}/>
+          <CategoryContainer CategoryData={categoryProps} currentPage={currentPage}/>
           :
           <ProductContainer ProductData = {category1Props}/>
         }
