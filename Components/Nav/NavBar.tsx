@@ -69,13 +69,16 @@ const NavBar = (): JSX.Element => {
     setButtonClick();
   } 
 
+  const helpCenterHandler = () =>{
+    
+  }
   
   return (
     <div className={style.wrapperContainer}>
               <Link href="/" passHref> 
                 <div className={style.navContainer}>
-                    <a className={style.navIcon} >{routerPath === '/'?  <div>
-                        <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px" />
+                    <a className={style.navIcon} >{routerPath === '/'?  <div onClick={helpCenterHandler}>
+                        <Image src="/images/hamburgermenu.png" alt="seemore" width="30px" height="30px"/>
                         </div> :   <div>
                         <Image src="/images/arrowback.png" alt="seeback" className={style.NavImage} width="30px" height="30px"/>
                         </div> }               
