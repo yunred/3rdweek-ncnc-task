@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background-color: #eee;
 }
 
 .header {
@@ -15,8 +14,9 @@
 .innerContainer {
   font-size: 14px;
   font-weight: 500;
-  background-color: #fff;
+  background: #fff;
   cursor: pointer;
+  border-bottom: 2px solid #ebeced;
 }
 
 .innerContainer h3 {
