@@ -1,7 +1,8 @@
 .Container {
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 210.66px 210.66px 210.66px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 112px;
   background-color: #eee;
   gap:2.3px;
