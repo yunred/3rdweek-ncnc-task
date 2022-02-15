@@ -5,7 +5,6 @@
   margin: auto;
 }
 
-
 .main {
   min-height: 100vh;
   padding: 4rem 0;
@@ -16,21 +15,21 @@
   align-items: center;
 }
 
-.middleContent{
+.middleContent {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  margin:0 0 14px 0;
+  margin: 0 0 14px 0;
   padding: 0 0 0 20px;
 }
 
-.middleContent .contentMessage1{
-  color:red;
+.middleContent .contentMessage1 {
+  color: red;
   font-size: 14px;
-  margin:0 0 5px 0;
+  margin: 0 0 5px 0;
 }
-.middleContent .contentMessage2{
+.middleContent .contentMessage2 {
   font-size: 16px;
   font-weight: 700;
 }
