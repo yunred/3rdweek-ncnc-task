@@ -44,7 +44,7 @@ const close = { bottom: `100px` };
 const open = { bottom: `-30px` };
 
 const closeBg = { transform: `translateY(0px)` };
-const openBg = { transform: `translateY(-1087px)` };
+const openBg = { transform: `translateY(calc(-100vh - 80px))` };
 
 const Option = ({ options, discountRate }: OptionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
