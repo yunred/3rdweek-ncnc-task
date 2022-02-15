@@ -1,7 +1,10 @@
-import style from "Components/ItemContainer/ItemContainer.module.css";
+import { useEffect, useState } from "react";
 
 import * as T from "Types/Types";
-import { useEffect, useState } from "react";
+
+import style from "Components/ItemContainer/ItemContainer.module.css";
+import Option from "Components/Option/index.Option";
+import ProductContent from "Components/ProductContent/index.ProductContent";
 
 interface ItemContainerProps {
   itemData: T.ItemProps;
@@ -12,10 +15,6 @@ enum info {
   market = "사용 불가 매장",
   refund = "환불규정",
 }
-
-const getPrice = (str: number): string => {
-  return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
 
 interface WarningData {
   warn: string[];
@@ -45,51 +44,44 @@ const ItemContainer = ({ itemData }: ItemContainerProps) => {
   };
 
   useEffect(() => {
-    getWarning();
+    if (itemData.warning !== null) getWarning();
   }, [itemData]);
 
   return (
     <div className={style.container}>
-      <div className={style.header}>
-        <div className={style.headerImgContainer}>
-          <img className={style.headerImg} src={itemData.imageUrl} />
-        </div>
-        <div className={style.headerContent}>
-          <h3 className={style.brandName}>{itemData.conCategory2.name}</h3>
-          <h2 className={style.productName}>{itemData.name}</h2>
-          <div className={style.priceContainer}>
-            <span className={style.discountRate}>
-              {getPrice(itemData.discountRate)}%
-            </span>
-            <span className={style.discountPrice}>
-              {getPrice(itemData.originalPrice)}원
-            </span>
-            <span className={style.originalPrice}>
-              {getPrice(itemData.ncSellingPrice)}원
-            </span>
-          </div>
-        </div>
-      </div>
+      <ProductContent ProductData={itemData} />
       <div className={style.body}>
-        <h4 className={style.listHeader}>{info.warning}</h4>
-        {warningData && <Warning warnList={warningData.warn} />}
-        <h4>{info.market}</h4>
-        {warningData && <Warning warnList={warningData.market} />}
-        <h4>{info.refund}</h4>
-        {warningData && <Warning warnList={warningData.refund} />}
+        <div>
+          {warningData && (
+            <>
+              <h4 className={style.listHeader}>{info.warning}</h4>
+              <Warning warnList={warningData.warn} />
+              <h4>{info.market}</h4>
+              <Warning warnList={warningData.market} />
+              <h4>{info.refund}</h4>
+              <Warning warnList={warningData.refund} />{" "}
+            </>
+          )}
+        </div>
       </div>
+      {itemData && (
+        <Option
+          options={itemData.options}
+          discountRate={itemData.discountRate}
+        />
+      )}
     </div>
   );
 };
 
-const Warning = ({ warnList }: {warnList:string[]}) => {
-  return <ul className={style.warnList}>
-    {
-      warnList.map((item,index)=>{
-        return <li key={index}>{item}</li>
-      })
-    }
-  </ul>;
+const Warning = ({ warnList }: { warnList: string[] }) => {
+  return (
+    <ul className={style.warnList}>
+      {warnList.map((item, index) => {
+        return <li key={index}>{item}</li>;
+      })}
+    </ul>
+  );
 };
 
 export default ItemContainer;

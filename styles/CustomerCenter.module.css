@@ -13,4 +13,5 @@
   justify-content: flex-start;
   align-items: center;
   box-sizing: unset !important;
+  overflow: hidden;
 }
