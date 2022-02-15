@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import * as C from 'Const/Const';
 import * as H from 'Hooks/Hooks';
 import * as T from 'Types/Types';
+import HorizontalScroll from 'react-scroll-horizontal'
 
 const SubNavData = [
   {
@@ -49,6 +50,8 @@ const SubNavData = [
 
 const NavBar = (): JSX.Element => {
   const [Navdata, setNavData] = useState({});
+  const [buttonClick, setButtonClick] = useState("")
+  const CategoryData = H.useFetch(C.CONCATEGORY_API);
 
   useEffect(()=>{
     (async()=> {
@@ -63,9 +66,13 @@ const NavBar = (): JSX.Element => {
   
   const routerPath = useRouter().asPath;
 
+  const subTitleNavHandler = (e) =>{
+    setButtonClick();
+  } 
+
+  
   return (
     <div className={style.wrapperContainer}>
-          <div >
               <Link href="/" passHref> 
                 <div className={style.navContainer}>
                     <a className={style.navIcon} >{routerPath === '/'?  <div>
@@ -80,9 +87,8 @@ const NavBar = (): JSX.Element => {
                     <div></div>
                 </div>
               </Link>
-          </div>
-          <div className="Wrapper">
-              {SubNavData.map((e, idx:number)=><p key={e.idx} >{routerPath === '/'? null : <div>{e.title}</div> }</p>)}      
+              <div className={style.subTitleContainer} onClick={subTitleNavHandler}>
+                    {SubNavData.map((e, idx:number)=><p key={e.idx}>{routerPath === '/'? null : <button><a >{e.title}</a> </button>}</p>)} 
           </div>
     </div>
   );
