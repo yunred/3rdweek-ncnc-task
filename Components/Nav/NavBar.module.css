@@ -88,11 +88,13 @@
 
 .sideBarwrapperContainer {
   background-color: #fff;
+  font-weight: 600;
   max-width: 672px;
   margin: auto;
-  width: 100vw;
+  width: 110vw;
   height: 100vh;
   position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
   z-index: 700;
-  overflow: hidden;
 }
