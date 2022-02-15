@@ -108,6 +108,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
         <div className={style.innerContainer}>
           <div className={style.innerTitle}></div>
           <ul>
+            <div>옵션 선택하기</div>
             {options &&
               options.map((item, index) => {
                 return (
