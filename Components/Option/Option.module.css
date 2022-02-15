@@ -18,6 +18,7 @@
 
 .innerContainer ul {
   padding: 0;
+  height: 220px;
 }
 
 .innerContainer::-webkit-scrollbar {
