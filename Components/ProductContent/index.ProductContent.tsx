@@ -13,6 +13,7 @@ const ProductContent = ({ ProductData }: ProductProductData) => {
       <div className='contentWarpper'>
         {ProductData && (
           <Link href={`/items/${ProductData.id}`}>
+            <a>
             <div className="container">
               <img
                 className="product_img"
@@ -43,6 +44,7 @@ const ProductContent = ({ ProductData }: ProductProductData) => {
                 </div>
               </div>
             </div>
+            </a>
           </Link>
         )}
       </div>

@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@types/node": "17.0.17",
     "@types/react": "17.0.39",
+    "cypress": "^9.5.0",
     "eslint": "8.9.0",
     "eslint-config-next": "12.0.10",
     "eslint-plugin-react-hooks": "^4.3.0",
