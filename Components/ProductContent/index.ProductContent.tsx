@@ -14,6 +14,8 @@ const ProductContent = ({ ProductData, isItemList }: ProductContentProps) => {
       <div className={style.ContentWarpper}>
         {ProductData && (
           <Link href={`/items/${ProductData.id}`}>
+            <a>
+            <div className="container">
             <div className={style.Container}>
               <img
                 className={style.ProductImg}
@@ -51,6 +53,7 @@ const ProductContent = ({ ProductData, isItemList }: ProductContentProps) => {
                 </div>
               </div>
             </div>
+            </a>
           </Link>
         )}
       </div>
