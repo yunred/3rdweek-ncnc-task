@@ -70,7 +70,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
         }}
         className={style.title}
       >
-        {isOpen ? optionsContent.buy : optionsContent.title}
+        {isOpen || item ? optionsContent.buy : optionsContent.title}
       </div>
       <div
         onClick={() => {
