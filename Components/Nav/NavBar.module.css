@@ -1,5 +1,5 @@
 .wrapperContainer {
-  background-color: #eee;
+  background-color: #fff;
   max-width: 672px;
   margin: auto;
   font-weight: 600;
@@ -41,4 +41,57 @@
   flex-wrap: nowrap;
   overflow: Horizontal scroll;
   padding-left: 17px;
+}
+
+.myPageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBarIcon {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px;
+  text-decoration: none;
+  height: 50px;
+}
+
+.arrowRigh {
+  font-size: 50px;
+}
+
+.sideBarline {
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+}
+
+.sideBarIcon:link,
+.sideBarIcon:visited,
+.sideBarIcon:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.sideBarbottom {
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+}
+
+.sideBarLastLine {
+  width: 100%;
+  height: 1220px;
+  background-color: #fff;
+}
+
+.sideBarwrapperContainer {
+  background-color: #fff;
+  max-width: 672px;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 700;
 }

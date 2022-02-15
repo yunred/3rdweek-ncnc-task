@@ -5,6 +5,7 @@ import styles from 'styles/Home.module.css'
 import CategoryContainer from 'Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 import Carousel from 'Components/Carousel/index.Carousel';
+
 import { CategoryListType } from 'Types/Types';
 import { ProductProps } from 'Components/Types/ProductType';
 
@@ -15,6 +16,7 @@ interface HomeProps {
 
 const Home:NextPage<HomeProps> = ({ menuCategory, productContent }) => {
   return (
+    
     <div className={styles.container}>
       <main className={styles.main}>
         <Carousel/>
@@ -28,6 +30,7 @@ const Home:NextPage<HomeProps> = ({ menuCategory, productContent }) => {
 
       <footer className={styles.footer}></footer>
     </div>
+
   );
 };
 
