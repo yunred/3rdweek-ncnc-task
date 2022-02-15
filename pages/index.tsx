@@ -13,7 +13,7 @@ interface HomeProps {
   productContent: ProductProps[]
 }
 
-const Home:NextPage = ({ menuCategory, productContent } :HomeProps) => {
+const Home:NextPage<HomeProps> = ({ menuCategory, productContent }) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
