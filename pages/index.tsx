@@ -40,8 +40,8 @@ const Home:NextPage<HomeProps> = ({ currentPage, menuCategory, productContent })
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const menuCategory = await H.useFetch(C.CONCATEGORY_API);
-  const productContent = await H.useFetch(`${C.CONITEM_API}/${C.SOON}`);
+  const menuCategory = await H.Fetch(C.CONCATEGORY_API);
+  const productContent = await H.Fetch(`${C.CONITEM_API}/${C.SOON}`);
 
   return {
     props: {

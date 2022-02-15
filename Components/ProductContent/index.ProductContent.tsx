@@ -3,55 +3,57 @@ import Image from 'next/image';
 import style from 'Components/ProductContent/ProductContent.module.css';
 import { ProductProps } from '../Types/ProductType';
 import Link from 'next/link';
-interface ProductContentProps {
+import * as T from 'Types/Types'
+interface ProductContentProps{
   ProductData: ProductProps;
   isItemList?: boolean;
 }
 
-const ProductContent = ({ ProductData, isItemList }: ProductContentProps) => {
+const ProductContent = (props: ProductContentProps) => {
   return (
     <>
       <div className={style.ContentWarpper}>
-        {ProductData && (
-          <Link href={`/items/${ProductData.id}`}>
+        {props.ProductData && (
+          <Link href={`/items/${props.ProductData.id}`}>
             <a>
             <div className="container">
             <div className={style.Container}>
               <img
                 className={style.ProductImg}
-                src={ProductData.imageUrl}
-                alt={ProductData.name}
+                src={props.ProductData.imageUrl}
+                alt={props.ProductData.name}
               />
               <div className={style.ProductInfo}>
-                {!isItemList && (
+                {!props.isItemList && (
                   <span className={style.ProductCategoryName}>
-                    {ProductData.conCategory2.name}
+                    {props.ProductData.conCategory2.name}
                   </span>
                 )}
                 <span
                   className={style.ProductName}
-                  style={{ marginTop: `${isItemList ? '14px' : '0px'}` }}
+                  style={{ marginTop: `${props.isItemList ? '14px' : '0px'}` }}
                 >
-                  {ProductData.name}
+                  {props.ProductData.name}
                 </span>
                 <div className={style.PriceContainer}>
                   <span className={style.DiscountRate}>
-                    {ProductData.discountRate}%
+                    {props.ProductData.discountRate}%
                   </span>
                   <span className={style.SellingPrice}>
-                    {ProductData.minSellingPrice
+                    {props.ProductData.minSellingPrice
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                     원
                   </span>
                   <span className={style.OriginalPrice}>
-                    {ProductData.originalPrice
+                    {props.ProductData.originalPrice
                       .toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                     원
                   </span>
                 </div>
               </div>
+            </div>
             </div>
             </a>
           </Link>

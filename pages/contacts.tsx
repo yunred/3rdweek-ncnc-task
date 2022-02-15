@@ -23,7 +23,7 @@ const CustomerCenter: NextPage<T.CustomerCenterProps> = ({ faqType }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const faqType = await H.useFetch(C.FAQTYPE_API);
+  const faqType = await H.Fetch(C.FAQTYPE_API);
   return {
     props: {
       faqType: faqType.qaTypes,
