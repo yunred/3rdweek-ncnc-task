@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from "react";
-import * as C from '/Const/Const';
-import * as H from '/Hooks/Hooks.ts';
-import * as T from '/Types/Types.ts';
+import * as C from 'Const/Const';
+import * as H from 'Hooks/Hooks';
+import * as T from 'Types/Types';
 
 const SubNavData = [
   {
@@ -86,7 +86,7 @@ const NavBar = (): JSX.Element => {
               </Link>
           </div>
           <div>
-              {SubNavData.map((e, index)=><p key={e.index} className="subNaveName">{routerPath === '/'? null : <div>{e.title}</div> }</p>)}      
+              {SubNavData.map((e, idx:number)=><p key={e.idx} className="subNaveName">{routerPath === '/'? null : <div>{e.title}</div> }</p>)}      
           </div>
     </div>
   );
