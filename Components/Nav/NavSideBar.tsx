@@ -5,7 +5,7 @@ import css from "styled-jsx/css";
 import Link from "next/link";
 import Image from 'next/image'
 
-const NavSideBar = ({setSideBarOpen} : any ): JSX.Element => {
+const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
     const goBackHandler = () =>{
         setSideBarOpen(true);
     }
