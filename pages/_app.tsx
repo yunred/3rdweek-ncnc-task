@@ -30,7 +30,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           <link rel="icon" href="/favicon.ico" />
 
     </Head>
-    <NavBar />
     <Component {...pageProps} />
   </>
   )}

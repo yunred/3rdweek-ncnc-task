@@ -14,14 +14,28 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
 
         <div className={style.sideBarwrapperContainer} onClick={goBackHandler}  >
                 <div className={style.myPageWrap} >
-                    <p>마이페이지</p>       
+                <Image
+                      src="/images/close.png"
+                      alt="seeback"
+                      width="20px"
+                      height="20px"
+                    />
+                    <p>마이페이지</p>
+                    <div className={style.noneImage}></div>       
                 </div>
                 <div className={style.sideBarline} /> 
 
                 <Link href={`/contacts`} >
                         <a className={style.sideBarIcon} > 
                             <div> 고객센터 </div> 
-                            <div> > </div> 
+                            <div className={style.sideBarTitle}>
+                            <Image
+                            src="/images/arrowRightIcon.png"
+                            alt="seeback"
+                            width="20px"
+                            height="20px"
+                            />
+                            </div>
                         </a> 
                 </Link>
                 <div className={style.sideBarbottom} />        

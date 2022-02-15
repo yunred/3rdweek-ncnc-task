@@ -7,14 +7,18 @@ import * as C from "Const/Const";
 import * as T from "Types/Types";
 
 import { NextPage, GetServerSideProps } from "next";
+import NavBar from "Components/Nav/NavBar";
 
 const CustomerCenter: NextPage<T.CustomerCenterProps> = ({ faqType }) => {
   return (
+    <>
+    <NavBar/>
     <div className={CustomerStyle.container}>
       <main className={CustomerStyle.main}>
           <QuestionContainer faqType={faqType} />
       </main>
     </div>
+    </>
   );
 };
 

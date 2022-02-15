@@ -1,5 +1,5 @@
 import style from 'Components/Carousel/Carousel.module.css';
-import { useState, MouseEvent, TouchEvent } from 'react';
+import { useState, useCallback, useRef, MouseEvent, TouchEvent } from 'react';
 import useInterval from '../../Hooks/useInterval';
 
 const ImageData = [
@@ -30,6 +30,7 @@ const Carousel = () => {
   const [startX, setStartX] = useState<number>();
   const [isSideImg, setIsSideImg] = useState<boolean>(false);
   const [isStop, setIsStop] = useState<boolean>(false);
+  const [CarouselWidth, setCarouselWidth] = useState<number>(672);
   type MouseEventType = MouseEvent<HTMLElement>;
   type TouchEventType = TouchEvent<HTMLElement>;
 
@@ -56,10 +57,11 @@ const Carousel = () => {
   const handleTouchStart = (e: TouchEventType) => {
     e.stopPropagation();
     setStartX(e.changedTouches[0].pageX);
+    setIsStop(true);
   };
   const handleTouchEnd = (e: TouchEventType) => {
-    //e.preventDefault();
     e.stopPropagation();
+    setIsStop(false);
     endX = e.changedTouches[0].pageX;
     if (startX) {
       let diffX = endX - startX;
@@ -107,28 +109,34 @@ const Carousel = () => {
     setIsStop(false);
   };
 
-  //무한 슬라이드 구현
-  // useInterval(
-  //   () => {
-  //     onRightDrag();
-  //   },
-  //   isStop ? null : 2000
-  // );
+  useInterval(
+    () => {
+      onRightDrag();
+    },
+    isStop ? null : 3000
+  );
 
+  const CarouselStyle = {
+    transition: isSideImg ? '0ms' : 'transform 1s ease',
+    transform: `translate(${step * CarouselWidth * -1}px)`,
+  };
+
+  const div = (node: any) => {
+    if (node !== null) {
+      setCarouselWidth(node.getBoundingClientRect().width);
+    }
+  };
   return (
-    <div className={style.Container}>
+    <div className={style.Container} ref={div}>
       <div
         className={style.InnerContainer}
         onMouseDown={onImgDragStart}
         onMouseUp={onImgDragEnd}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
         onMouseOver={onAutoSlideStop}
         onMouseOut={onAutoSlideStart}
-        style={{
-          transition: `${isSideImg ? '0ms' : 'transform 1s ease'}`,
-          transform: `translate(${step * 672 * -1}px)`,
-        }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={CarouselStyle}
       >
         {ImageData.map((item, index) => {
           return (
