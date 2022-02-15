@@ -1,12 +1,12 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import * as C from "Const/Const";
 import * as H from "Hooks/Hooks";
-import styles from '../styles/Home.module.css'
+import styles from 'styles/Home.module.css'
 import CategoryContainer from 'Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 import Carousel from 'Components/Carousel/index.Carousel';
-import { CategoryListType } from '../Types/Types';
-import { ProductProps } from '../Components/Types/ProductType';
+import { CategoryListType } from 'Types/Types';
+import { ProductProps } from 'Components/Types/ProductType';
 
 interface HomeProps {
   menuCategory: CategoryListType[]
