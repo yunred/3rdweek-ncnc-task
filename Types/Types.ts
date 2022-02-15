@@ -12,3 +12,19 @@ export interface CategoryListType {
 export interface APICompoProps {
     InititalProps: CategoryType
 }
+
+export interface CustomerCenterProps {
+    faqType: QaType[];
+}
+
+export interface QaType {
+    id: number;
+    key: string;
+    name: string;
+}
+
+export interface QuestionContainerProps {
+    question: string;
+    answer: string;
+    id: number;
+}
