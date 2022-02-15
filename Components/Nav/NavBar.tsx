@@ -100,6 +100,7 @@ const NavBar = (): JSX.Element => {
                       alt="seemore"
                       width="30px"
                       height="30px"
+                      className={style.customerNavImage}
                     />
                   </div>
                 ) : routerPath === '/CustomerCenter' ? (
@@ -133,7 +134,7 @@ const NavBar = (): JSX.Element => {
                     : Navdata[routerPath.slice(12)]}
                 </p>
               </div>
-              <div></div>
+              <div className={style.noneImage}></div>     
             </div>
           </Link>
           <section className={style.TopCategories}>
