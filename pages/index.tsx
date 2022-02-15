@@ -10,6 +10,7 @@ import * as H from "Hooks/Hooks";
 import * as T from 'Types/Types';
 
 import { ProductProps } from 'Components/Types/ProductType';
+import NavBar from 'Components/Nav/NavBar';
 
 interface HomeProps {
   menuCategory: T.CategoryListType[];
@@ -19,6 +20,8 @@ interface HomeProps {
 
 const Home:NextPage<HomeProps> = ({ currentPage, menuCategory, productContent }) => {
   return (
+    <>
+    <NavBar/>
     <div className={styles.container}>
       <main className={styles.main}>
         <Carousel/>
@@ -32,6 +35,7 @@ const Home:NextPage<HomeProps> = ({ currentPage, menuCategory, productContent })
 
       <footer className={styles.footer}></footer>
     </div>
+    </>
   );
 };
 

@@ -75,8 +75,8 @@ const getPrice = (str: string): string => {
   return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 };
 
-const open = { transform: `translateY(500px)` };
-const close = { transform: `translateY(-330px)` };
+const open = { transform: `translateY(0px)` };
+const close = { transform: `translateY(-350px)` };
 
 const Option = ({ options, discountRate }: OptionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -102,7 +102,7 @@ const Option = ({ options, discountRate }: OptionProps) => {
         }}
         className={style.title}
       >
-        {isOpen ? optionsContent.title : optionsContent.buy}
+        {isOpen ? optionsContent.buy : optionsContent.title }
       </div>
       {item && (
         <div className={style.selectedItem}>
