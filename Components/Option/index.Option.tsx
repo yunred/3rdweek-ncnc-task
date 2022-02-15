@@ -19,7 +19,7 @@ enum optionsContent {
   year = "년 ",
   month = "월 ",
   day = "일 까지",
-  buy = "구매하기"
+  buy = "구매하기",
 }
 
 const getTimes = (str: string): string => {
@@ -80,38 +80,61 @@ const close = { transform: `translateY(-330px)` };
 
 const Option = ({ options, discountRate }: OptionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [item,setItem] = useState<Item>();
+  const [item, setItem] = useState<Item>();
 
-  const handleSelect = (item:T.Options) =>{
+  const handleSelect = (item: T.Options) => {
     const newState = {
-      expireAt : item.expireAt,
+      expireAt: item.expireAt,
       price: item.sellingPrice,
-    }
-    setItem(newState)
+    };
+    setItem(newState);
     setIsOpen(!isOpen);
-  }
+  };
 
   return (
-    <div style={{background : `${isOpen ? "#ccc" :"#f75656"}`}} className={style.container}>
+    <div
+      style={{ background: `${isOpen ? "#ccc" : "#f75656"}` }}
+      className={style.container}
+    >
       <div
         onClick={() => {
           setIsOpen(!isOpen);
         }}
         className={style.title}
       >
-      {isOpen ? optionsContent.title: optionsContent.buy}
+        {isOpen ? optionsContent.title : optionsContent.buy}
       </div>
-      {item && <div className={style.selectedItem}>
-        <p>{getTimes(item.expireAt)}/{getPrice(item.price)}</p>
-        <button onClick={()=>{setItem("")}}>X</button></div> }
-      <div className={style.overflowContainer}>
-        <div style={isOpen ? open : close} className={style.innerContainer}>
+      {item && (
+        <div className={style.selectedItem}>
+          <p>
+            {getTimes(item.expireAt)}/{getPrice(item.price)}
+          </p>
+          <button
+            onClick={() => {
+              setItem({
+                expireAt: "",
+                price: "",
+              });
+            }}
+          >
+            X
+          </button>
+        </div>
+      )}
+      <div style={isOpen ? open : close} className={style.overflowContainer}>
+        <div className={style.innerContainer}>
           <div className={style.innerTitle}></div>
           <ul>
             {options &&
               options.map((item, index) => {
                 return (
-                  <li onClick={()=>{handleSelect(item)}} key={index} className={style.selectContainer}>
+                  <li
+                    onClick={() => {
+                      handleSelect(item);
+                    }}
+                    key={index}
+                    className={style.selectContainer}
+                  >
                     <div className={style.leftZone}>
                       <div className={style.leftZoneTitle}>
                         <p>{optionsContent.expire}</p>
