@@ -17,7 +17,6 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
                 <Image
                       src="/images/close.png"
                       alt="seeback"
-                      className={style.customerNavImage}
                       width="20px"
                       height="20px"
                     />
@@ -29,13 +28,14 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
                 <Link href={`/contacts`} >
                         <a className={style.sideBarIcon} > 
                             <div> 고객센터 </div> 
+                            <div className={style.sideBarTitle}>
                             <Image
                             src="/images/arrowRightIcon.png"
                             alt="seeback"
-                            className={style.customerNavImage}
                             width="20px"
                             height="20px"
                             />
+                            </div>
                         </a> 
                 </Link>
                 <div className={style.sideBarbottom} />        
