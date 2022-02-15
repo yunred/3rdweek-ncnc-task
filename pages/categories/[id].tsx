@@ -8,7 +8,14 @@ import CategoryContainer from 'Components/CategoryContainer/index.CategoryContai
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 import NavBar from 'Components/Nav/NavBar';
 
-const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1Props}) => {
+interface CategoriesProps {
+  currentPage: string,
+  curruntID: string,
+  categoryProps: any,
+  category1Props: any[]
+}
+
+const Categories: NextPage<CategoriesProps> = ({currentPage, curruntID, categoryProps, category1Props}) => {
     const router = useRouter();
     return (
       <>
@@ -31,14 +38,14 @@ const Categories: NextPage = ({currentPage, curruntID, categoryProps, category1P
   
 export const getServerSideProps: GetServerSideProps = async (context:GetServerSidePropsContext) => {
   const curruntID = context.params? context.params.id: undefined;
-  const categoryProps = await H.useFetch(C.CONCATEGORY_API + curruntID + C.NESTED);
-  const category1Props = await H.useFetch(C.CONITEM_API + C.SOON);
+  const categoryProps = await H.Fetch(C.CONCATEGORY_API + curruntID + C.NESTED);
+  const category1Props = await H.Fetch(C.CONITEM_API + C.SOON);
   return {
     props: {
       currentPage: 'categories',
       curruntID: curruntID,
       categoryProps: categoryProps.conCategory1.conCategory2s,
-      category1Props: category1Props.conItems.sort((a, b)=> a.id - b.id)
+      category1Props: category1Props.conItems.sort((a: { id: number; }, b: { id: number; })=> a.id - b.id)
     },
   };
 };

@@ -141,7 +141,6 @@ const Carousel = () => {
         {ImageData.map((item, index) => {
           return (
             <img
-              key={index}
               className={style.image}
               key={item.idx}
               src={item.imageUrl}

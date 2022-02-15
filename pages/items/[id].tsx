@@ -1,5 +1,5 @@
 import { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 
 import * as H from "Hooks/Hooks";
 import * as C from "Const/Const";
@@ -15,14 +15,14 @@ interface ItemPageProps {
   currentId: number;
 }
 
-const Items: NextPage<ItemPageProps> = ({ currentId }) => {
+const Items = ({ currentId }:ItemPageProps) => {
   const [itemData, setItemData] = useState<T.ItemProps>();
 
   console.log(itemData);
 
   useEffect(() => {
     (async () => {
-      const res = await H.useFetch(`${C.CONITEM_API}/${currentId}`);
+      const res = await H.Fetch(`${C.CONITEM_API}/${currentId}`);
       setItemData(res.conItem);
     })();
   }, []);

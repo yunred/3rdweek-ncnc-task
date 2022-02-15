@@ -35,7 +35,7 @@ const QuestionContainer = ({ faqType }: T.CustomerCenterProps) => {
 
   useEffect(() => {
     (async () => {
-      const res = await H.useFetch(
+      const res = await H.Fetch(
         C.FAQCONTENT_API + getId()
       );
       setQuestionsData(res.qas);

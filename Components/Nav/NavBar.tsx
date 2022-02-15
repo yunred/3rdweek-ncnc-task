@@ -9,8 +9,15 @@ import * as H from 'Hooks/Hooks';
 import * as T from 'Types/Types';
 import NavSideBar from './NavSideBar';
 
-const NavBar = ( { brandName } ): JSX.Element => {
-  const [Navdata, setNavData] = useState({});
+interface propsTypes{
+  brandName? : string
+}
+
+type tempType = Record<string, string>
+type NavdataType = Record<string, string>
+
+const NavBar = ( { brandName }:propsTypes ): JSX.Element => {
+  const [Navdata, setNavData] = useState<NavdataType>({});
   const [isSideBarOpen, setSideBarOpen] = useState<boolean>(true);
   const [NavdataList, setNavDataList] = useState<any[]>([]);
   const [APIFlag, setAPIFlag] = useState<boolean>(true);
@@ -20,12 +27,11 @@ const NavBar = ( { brandName } ): JSX.Element => {
   type TouchEventType = TouchEvent<HTMLElement>;
   useEffect(() => {
     (async () => {
-      const APIdata = await H.useFetch(C.CONCATEGORY_API);
-      const temp = {};
+      const APIdata = await H.Fetch(C.CONCATEGORY_API);
+      const temp:tempType = {};
       if (APIFlag) {
         APIdata.conCategory1s.forEach((els: any) => {
           temp[els.id] = els.name;
-          //setNavDataList(NavdataList.concat({ id: els.id, name: els.name }));
           NavdataList.push({ id: els.id, name: els.name });
           if (els.id === 128) {
             setAPIFlag(false);

@@ -1,3 +1,5 @@
+import { ProductProps } from 'Components/Types/ProductType';
+
 export interface CategoryType  {
     conCategory1s:CategoryListType[]
 }
@@ -57,7 +59,7 @@ export interface Options{
     sellingPrice: string;
 }
 
-export interface ItemProps {
+export interface ItemProps extends ProductProps{
     conCategory2: ConCategory2;
     conCategory2Id: number;
     discountRate: number;

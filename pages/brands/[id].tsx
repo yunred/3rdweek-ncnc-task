@@ -1,19 +1,26 @@
 import type { NextPage, GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
 import styles from '/styles/Categories.module.css'
-import * as C from "/Const/Const";
-import * as H from "/Hooks/Hooks.ts";
+import * as C from "Const/Const";
+import * as H from "Hooks/Hooks";
 import { useState, useEffect } from 'react';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 import css from 'styled-jsx/css';
 import NavBar from 'Components/Nav/NavBar';
 
-const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) => {
-    const [brandsList, setBrandsList] = useState([]);
-    const [PH, setPH] = useState([]);
+interface PropsType {
+  allCategors:any,
+  currentPage: string,
+  curruntID: string,
+  BrandList: []
+}
+
+const Brands = ({ allCategors, currentPage, curruntID, BrandList }: PropsType) => {
+    const [brandsList, setBrandsList] = useState<any[]>([]);
+    const [PH, setPH] = useState<any[]>([]);
     const [brandProductList, setbrandProductList] = useState([]);
-    const [productInfo, setproductInfo] = useState({});
-    const [containerProps, setContainerProps] = useState([]);
+    const [productInfo, setproductInfo] = useState<any>({});
+    const [containerProps, setContainerProps] = useState<any[]>([]);
     const [sortMode, setSortMode] = useState('priority')
     const router = useRouter();
     useEffect(()=>{
@@ -22,7 +29,7 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
                 if (allCategors[idx].id === 1){
                     continue;
                 }
-                const APIdata = await H.useFetch(C.CONCATEGORY_API + allCategors[idx].id + C.NESTED);
+                const APIdata = await H.Fetch(C.CONCATEGORY_API + allCategors[idx].id + C.NESTED);
                 setPH( [...APIdata.conCategory1.conCategory2s] );   
             }
         })();
@@ -33,15 +40,16 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
         const temp = propsidx !== -1? brandsList[propsidx].conItems: [];
         setbrandProductList(temp);
     }, [PH])
+    interface productType {id : string}
     useEffect(()=> {
-        brandProductList.forEach(async product=> {
-            const APIdata = await H.useFetch(C.CONITEM_API + product.id);
+        brandProductList.forEach(async (product:productType) => {
+            const APIdata = await H.Fetch(C.CONITEM_API + product.id);
             setproductInfo(APIdata)
         })
     }, [brandProductList]);
     useEffect(() => {
         if(productInfo.conItem){
-        const newstate = containerProps;
+        const newstate:any = containerProps;
         newstate.push(productInfo.conItem);
         setContainerProps(newstate)
     }}, [productInfo])
@@ -92,7 +100,7 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
   
 export const getServerSideProps: GetServerSideProps = async (context:GetServerSidePropsContext) => {
   const curruntID = context.params? context.params.id: undefined;
-  let allCategors = await H.useFetch(C.CONCATEGORY_API);
+  let allCategors = await H.Fetch(C.CONCATEGORY_API);
   allCategors = allCategors.conCategory1s;
  
 
@@ -106,4 +114,4 @@ export const getServerSideProps: GetServerSideProps = async (context:GetServerSi
 };
 
 
-  export default brands
+  export default Brands
