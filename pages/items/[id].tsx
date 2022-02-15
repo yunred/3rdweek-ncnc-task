@@ -7,6 +7,7 @@ import * as C from "Const/Const";
 import styles from "styles/CustomerCenter.module.css";
 import ItemContainer from "Components/ItemContainer/index.ItemContainer";
 import * as T from "Types/Types";
+import Option  from 'Components/Option/index.Option';
 
 interface ItemPageProps {
   currentId: number;
@@ -29,7 +30,7 @@ const Items: NextPage<ItemPageProps> = ({ currentId }) => {
       <main className={styles.main}>
         {itemData && <ItemContainer itemData={itemData} />}
       </main>
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>{itemData && <Option options={itemData.options} discountRate={itemData.discountRate}/>}</footer>
     </div>
   );
 };

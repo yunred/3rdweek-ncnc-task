@@ -51,7 +51,7 @@ export interface ConCategory1 {
     imageUrl: string;
 }
 
-export interface options{
+export interface Options{
     count: string;
     expireAt: string;
     sellingPrice: string;
@@ -69,7 +69,7 @@ export interface ItemProps {
     minSellingPrice: number;
     name: string;
     ncSellingPrice: number;
-    options: options[];
+    options: Options[];
     originalPrice: number;
     tip: null | string;
     warning:string;
