@@ -100,10 +100,9 @@ const NavBar = (): JSX.Element => {
                       alt="seemore"
                       width="30px"
                       height="30px"
-                      className={style.customerNavImage}
                     />
                   </div>
-                ) : routerPath === '/CustomerCenter' ? (
+                ) : routerPath === '/contacts' ? (
                   <div>
                     <Image
                       src="/images/close.png"
@@ -129,7 +128,7 @@ const NavBar = (): JSX.Element => {
                 <p>
                   {routerPath === '/'
                     ? '니콘내콘'
-                    : routerPath === '/CustomerCenter'
+                    : routerPath === '/contacts'
                     ? '고객센터'
                     : Navdata[routerPath.slice(12)]}
                 </p>
@@ -137,6 +136,7 @@ const NavBar = (): JSX.Element => {
               <div className={style.noneImage}></div>     
             </div>
           </Link>
+
           <section className={style.TopCategories}>
             <div className={style.subTitleWrapper}>
               <div
@@ -163,7 +163,7 @@ const NavBar = (): JSX.Element => {
                       }`,
                     }}
                   >
-                    {routerPath === '/' ? null : (
+                    {routerPath === '/' ? null : routerPath === '/contacts' ? null : (
                       <Link href={`/categories/${e.id}`}>
                         <span
                           className={style.CategoryText}
