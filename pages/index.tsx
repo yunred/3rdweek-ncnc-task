@@ -15,7 +15,7 @@ interface HomeProps {
   productContent: ProductProps[]
 }
 
-const Home:NextPage<HomeProps> = ({ menuCategory, productContent }) => {
+const Home:NextPage<HomeProps> = ({ currentPage, menuCategory, productContent }) => {
   return (
     
     <div className={styles.container}>
@@ -41,6 +41,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
+      currentPage: 'home',
       menuCategory: menuCategory.conCategory1s,
       productContent: productContent.conItems,
     },
