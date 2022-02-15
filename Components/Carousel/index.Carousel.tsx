@@ -1,5 +1,5 @@
 import style from 'Components/Carousel/Carousel.module.css';
-import { useState, MouseEvent, TouchEvent } from 'react';
+import { useState, useCallback, useRef, MouseEvent, TouchEvent } from 'react';
 import useInterval from '../../Hooks/useInterval';
 
 const ImageData = [
@@ -30,6 +30,7 @@ const Carousel = () => {
   const [startX, setStartX] = useState<number>();
   const [isSideImg, setIsSideImg] = useState<boolean>(false);
   const [isStop, setIsStop] = useState<boolean>(false);
+  const [CarouselWidth, setCarouselWidth] = useState<number>(672);
   type MouseEventType = MouseEvent<HTMLElement>;
   type TouchEventType = TouchEvent<HTMLElement>;
 
@@ -115,8 +116,18 @@ const Carousel = () => {
     isStop ? null : 3000
   );
 
+  const CarouselStyle = {
+    transition: isSideImg ? '0ms' : 'transform 1s ease',
+    transform: `translate(${step * CarouselWidth * -1}px)`,
+  };
+
+  const div = (node: any) => {
+    if (node !== null) {
+      setCarouselWidth(node.getBoundingClientRect().width);
+    }
+  };
   return (
-    <div className={style.Container}>
+    <div className={style.Container} ref={div}>
       <div
         className={style.InnerContainer}
         onMouseDown={onImgDragStart}
@@ -125,10 +136,7 @@ const Carousel = () => {
         onMouseOut={onAutoSlideStart}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        style={{
-          transition: `${isSideImg ? '0ms' : 'transform 1s ease'}`,
-          transform: `translate(${step * 672 * -1}px)`,
-        }}
+        style={CarouselStyle}
       >
         {ImageData.map((item, index) => {
           return (
