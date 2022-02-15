@@ -6,6 +6,7 @@ import * as H from "/Hooks/Hooks.ts";
 import { useState, useEffect } from 'react';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 import css from 'styled-jsx/css';
+import NavBar from 'Components/Nav/NavBar';
 
 const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) => {
     const [brandsList, setBrandsList] = useState([]);
@@ -39,18 +40,19 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
         })
     }, [brandProductList]);
     useEffect(() => {
-        if(productInfo){
+        if(productInfo.conItem){
         const newstate = containerProps;
         newstate.push(productInfo.conItem);
         setContainerProps(newstate)
     }}, [productInfo])
-    
     return (
+      <>
+      <NavBar brandName = {containerProps[0] ? containerProps[0].conCategory2.name : undefined }/>
       <div className={styles.container}>
         <main className={styles.main}>
           <div className='warpper'>
-            {containerProps.length < 10? <div className="ProductStock"><span className='stock'>{`0${containerProps.length -1}`}</span>개의 상품</div>
-            :<div className="ProductStock"><span className='stock'>{containerProps.length - 1}</span >개의 상품</div>
+            {containerProps.length < 10? <div className="ProductStock"><span className='stock'>{`0${containerProps.length}`}</span>개의 상품</div>
+            :<div className="ProductStock"><span className='stock'>{containerProps.length}</span >개의 상품</div>
             }
           </div>
           <ProductContainer ProductData = {containerProps} isItemList = {true}/>
@@ -83,6 +85,7 @@ const brands: NextPage = ({ allCategors, currentPage, curruntID, BrandList }) =>
           }
         `}</style>
       </div>
+      </>
       
     )
   }

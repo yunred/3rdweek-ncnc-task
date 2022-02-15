@@ -9,17 +9,13 @@ import * as H from 'Hooks/Hooks';
 import * as T from 'Types/Types';
 import NavSideBar from './NavSideBar';
 
-const NavBar = (): JSX.Element => {
+const NavBar = ( { brandName } ): JSX.Element => {
   const [Navdata, setNavData] = useState({});
-  const [buttonClick, setButtonClick] = useState('');
   const [isSideBarOpen, setSideBarOpen] = useState<boolean>(true);
-  const CategoryData = H.useFetch(C.CONCATEGORY_API);
   const [NavdataList, setNavDataList] = useState<any[]>([]);
   const [APIFlag, setAPIFlag] = useState<boolean>(true);
   const [selected, setSelected] = useState<number>();
   const [startX, setStartX] = useState<number>();
-  const [moveX, setMoveX] = useState<number>();
-  const [initialX, setInitialX] = useState<number>(0);
   type MouseEventType = MouseEvent<HTMLElement>;
   type TouchEventType = TouchEvent<HTMLElement>;
   useEffect(() => {
@@ -50,42 +46,9 @@ const NavBar = (): JSX.Element => {
     setSideBarOpen(false);
   };
 
-  const onImgDragStart = (e: MouseEventType) => {
-    setStartX(e.pageX);
-  };
-
-  const handleTouchStart = (e: TouchEventType) => {
-    e.stopPropagation();
-    setStartX(e.changedTouches[0].pageX);
-  };
-
-  const onImgDragEnd = (e: MouseEventType) => {
-    e.preventDefault();
-    let endX = e.pageX;
-    if (startX) {
-      let diffX = endX - startX;
-      if (Math.abs(diffX) > 20) {
-        setMoveX(diffX);
-        return;
-      }
-    }
-  };
-  const handleTouchEnd = (e: TouchEventType) => {
-    e.stopPropagation();
-    let endX = e.changedTouches[0].pageX;
-    if (startX) {
-      let diffX = endX - startX;
-      if (Math.abs(diffX) > 20) {
-        setMoveX(diffX);
-        return;
-      }
-    }
-  };
-
   const onSelectCategory = (index: number): void => {
     setSelected(index);
   };
-
   return (
     <>
       {isSideBarOpen ? (
@@ -126,17 +89,21 @@ const NavBar = (): JSX.Element => {
               </a>
               <div>
                 <p>
-                  {routerPath === '/'
+                  {
+                    brandName?
+                    brandName:
+                    routerPath === '/'
                     ? '니콘내콘'
                     : routerPath === '/contacts'
                     ? '고객센터'
-                    : Navdata[routerPath.slice(12)]}
+                    : Navdata[routerPath.slice(12)]
+                    }
                 </p>
               </div>
               <div className={style.noneImage}></div>     
             </div>
           </Link>
-
+          { routerPath == '/' || brandName?<></>:
           <section className={style.TopCategories}>
             <div className={style.subTitleWrapper}>
               <div
@@ -173,7 +140,7 @@ const NavBar = (): JSX.Element => {
                 ))}
               </div>
             </div>
-          </section>
+          </section>}
         </div>
       ) : (
         <NavSideBar setSideBarOpen={setSideBarOpen} />

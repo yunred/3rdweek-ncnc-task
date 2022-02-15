@@ -9,6 +9,8 @@ import ItemContainer from "Components/ItemContainer/index.ItemContainer";
 import * as T from "Types/Types";
 import Option  from 'Components/Option/index.Option';
 
+import NavBar from 'Components/Nav/NavBar';
+
 interface ItemPageProps {
   currentId: number;
 }
@@ -26,12 +28,15 @@ const Items: NextPage<ItemPageProps> = ({ currentId }) => {
   }, []);
 
   return (
+    <>
+    <NavBar/>
     <div className={styles.container}>
       <main className={styles.main}>
         {itemData && <ItemContainer itemData={itemData} />}
       </main>
       <footer className={styles.footer}></footer>
     </div>
+    </>
   );
 };
 
