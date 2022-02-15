@@ -75,8 +75,11 @@ const getPrice = (str: string): string => {
   return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 };
 
-const open = { transform: `translateY(0px)` };
-const close = { transform: `translateY(-350px)` };
+const close = { bottom: `100px` };
+const open = { bottom: `-30px` };
+
+const closeBg = { transform: `translateY(0px)` };
+const openBg = { transform: `translateY(-1087px)` };
 
 const Option = ({ options, discountRate }: OptionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -102,53 +105,70 @@ const Option = ({ options, discountRate }: OptionProps) => {
         }}
         className={style.title}
       >
-        {isOpen ? optionsContent.buy : optionsContent.title }
+        {isOpen ? optionsContent.buy : optionsContent.title}
       </div>
-      {item && (
-        <div className={style.selectedItem}>
-          <p>
-            {getTimes(item.expireAt)}/{getPrice(item.price)}
-          </p>
+      <div style={isOpen ? openBg : closeBg} className={style.blackBg}>
+        <div
+          style={{ bottom: isOpen ? "200px" : "0px" }}
+          className={style.innerTitle}
+        >
+          <span>{optionsContent.title}</span>
           <button
             onClick={() => {
-              setItem(null);
+              setIsOpen(!isOpen);
             }}
           >
             X
           </button>
         </div>
-      )}
-      <div style={isOpen ? open : close} className={style.overflowContainer}>
-        <div className={style.innerContainer}>
-          <div className={style.innerTitle}>ddddd</div>
-          <ul>
-            {options &&
-              options.map((item, index) => {
-                return (
-                  <li
-                    onClick={() => {
-                      handleSelect(item);
-                    }}
-                    key={index}
-                    className={style.selectContainer}
-                  >
-                    <div className={style.leftZone}>
-                      <div className={style.leftZoneTitle}>
-                        <p>{optionsContent.expire}</p>
-                        <p>{optionsContent.discountPrice}</p>
+        {item && (
+          <div
+            className={style.selectedItem}
+            onClick={() => {
+              setItem(null);
+            }}
+          >
+            <p>
+              {getTimes(item.expireAt)}/{getPrice(item.price)}
+            </p>
+            <button>X</button>
+          </div>
+        )}
+        <div className={style.overflowContainer}>
+          <div className={style.innerContainer}>
+            <ul style={isOpen ? open : close}>
+              {options &&
+                options.map((item, index) => {
+                  return (
+                    <li
+                      onClick={() => {
+                        handleSelect(item);
+                      }}
+                      key={index}
+                      className={style.selectContainer}
+                    >
+                      <div className={style.leftZone}>
+                        <div className={style.leftZoneTitle}>
+                          <p>{optionsContent.expire}</p>
+                          <p>{optionsContent.discountPrice}</p>
+                        </div>
+                        <div className={style.leftZoneContent}>
+                          {item !== undefined && (
+                            <p>{getTimes(item.expireAt)}</p>
+                          )}
+                          {item !== undefined && (
+                            <p>{getPrice(item.sellingPrice)}</p>
+                          )}
+                        </div>
                       </div>
-                      <div className={style.leftZoneContent}>
-                        <p>{getTimes(item.expireAt)}</p>
-                        <p>{getPrice(item.sellingPrice)}</p>
+                      <div className={style.rightZone}>
+                        <span>{discountRate}%</span>
                       </div>
-                    </div>
-                    <div className={style.rightZone}>
-                      <span>{discountRate}%</span>
-                    </div>
-                  </li>
-                );
-              })}
-          </ul>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
