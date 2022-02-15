@@ -22,54 +22,18 @@ enum optionsContent {
   buy = "구매하기",
 }
 
-const getTimes = (str: string): string => {
-  const [week, month, day, year] = str.split(" ");
+const getTimes = (str: string) => {
+  const date = new Date(str);
 
-  let result = year + "년 ";
-
-  switch (month) {
-    case "JAN":
-      result += "1월";
-      break;
-    case "FEB":
-      result += "2월";
-      break;
-    case "MAR":
-      result += "3월";
-      break;
-    case "APR":
-      result += "4월";
-      break;
-
-    case "MAY":
-      result += "5월";
-      break;
-    case "JUN":
-      result += "6월";
-      break;
-    case "JUL":
-      result += "7월";
-      break;
-    case "AUG":
-      result += "8월";
-      break;
-
-    case "SEP":
-      result += "9월";
-      break;
-    case "OCT":
-      result += "10월";
-      break;
-    case "NOV":
-      result += "11월";
-      break;
-    case "DEC":
-      result += "12월";
-      break;
+  const YYYY = date.getFullYear();
+  let mm = String(date.getMonth() + 1);
+  let dd = String(date.getDate());
+  
+  if(parseInt(dd) < 10){
+    dd = '0'+dd;
   }
-  result += " " + day + "일 까지"
 
-  return result;
+  return `${YYYY}년 ${mm}월 ${dd}일 까지`;
 };
 
 const getPrice = (str: string): string => {
@@ -108,9 +72,15 @@ const Option = ({ options, discountRate }: OptionProps) => {
       >
         {isOpen ? optionsContent.buy : optionsContent.title}
       </div>
-      <div style={isOpen ? openBg : closeBg} className={style.blackBg}>
+      <div
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        style={isOpen ? openBg : closeBg}
+        className={style.blackBg}
+      >
         <div
-          style={{ bottom: isOpen ? "200px" : "0px" }}
+          style={{ bottom: isOpen ? "200px" : "0" }}
           className={style.innerTitle}
         >
           <span>{optionsContent.title}</span>
@@ -130,7 +100,8 @@ const Option = ({ options, discountRate }: OptionProps) => {
             }}
           >
             <p>
-              {getTimes(item.expireAt)}/{getPrice(item.price)}
+              {item.expireAt !== undefined && getTimes(item.expireAt)}/
+              {item.price !== undefined && getPrice(item.price)}
             </p>
             <button>X</button>
           </div>
@@ -155,10 +126,15 @@ const Option = ({ options, discountRate }: OptionProps) => {
                         </div>
                         <div className={style.leftZoneContent}>
                           {item !== undefined && (
-                            <p>{getTimes(item.expireAt)}</p>
+                            <p>
+                              {item.expireAt !== undefined &&
+                                getTimes(item.expireAt)}
+                            </p>
                           )}
                           {item !== undefined && (
-                            <p>{getPrice(item.sellingPrice)}</p>
+                            <p>
+                              {item.sellingPrice && getPrice(item.sellingPrice)}
+                            </p>
                           )}
                         </div>
                       </div>

@@ -5,6 +5,7 @@
   background: #f75656;
   position: fixed;
   margin: auto;
+  cursor: pointer;
 }
 
 .blackBg{
