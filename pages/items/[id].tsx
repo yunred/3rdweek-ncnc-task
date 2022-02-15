@@ -32,7 +32,7 @@ const Items: NextPage<ItemPageProps> = ({ currentId }) => {
     <NavBar/>
     <div className={styles.container}>
       <main className={styles.main}>
-        {itemData && <ItemContainer itemData={itemData} />}
+          {itemData && <ItemContainer itemData={itemData} />}
       </main>
       <footer className={styles.footer}></footer>
     </div>

@@ -49,7 +49,9 @@ const ItemContainer = ({ itemData }: ItemContainerProps) => {
 
   return (
     <div className={style.container}>
+      <div className={style.warpper}>
       <ProductContent ProductData={itemData} />
+      </div>
       <div className={style.body}>
         <div>
           {warningData && (
