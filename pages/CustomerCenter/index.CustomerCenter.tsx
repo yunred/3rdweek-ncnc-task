@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import style from "styles/CustomerCenter.module.css";
 import { useState } from 'react';
+import Questions from "Components/QuestionContainer/index.QuestionContainer";
 
 enum CustomerCenterContent {
   title = "상담시간 안내",
@@ -11,7 +12,6 @@ enum CustomerCenterContent {
   buy = "구매",
   left = 0,
   right = 1,
-  Q = "Q",
 }
 
 const setColor = {color:`#f75656`,borderBottom: `2px solid #f75656`};
@@ -38,6 +38,10 @@ const CustomerCenter: NextPage = () => {
       </div>
       <div className={style.divider}/>
       <div className={style.body}>
+        {
+          // tab === CustomerCenterContent.right ? <Questions QuestionsData={}/> : <Questions QuestionsData={}/>
+        }
+        <Questions/>
       </div>
     </div>
   );
