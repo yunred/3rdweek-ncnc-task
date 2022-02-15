@@ -10,40 +10,42 @@ const ProductContent = ({ ProductData }: ProductProductData) => {
   //select === items : Link 없음
   return (
     <>
-      {ProductData && (
-        <Link href={`/items/${ProductData.id}`}>
-          <div className="container">
-            <img
-              className="product_img"
-              src={ProductData.imageUrl}
-              alt={ProductData.name}
-            />
-            <div className="product_info_container">
-              <span className="product_category_name">
-                {ProductData.conCategory2.name}
-              </span>
-              <span className="product_name">{ProductData.name}</span>
-              <div className="price_container">
-                <span className="discount_rate">
-                  {ProductData.discountRate}%
+      <div className='contentWarpper'>
+        {ProductData && (
+          <Link href={`/items/${ProductData.id}`}>
+            <div className="container">
+              <img
+                className="product_img"
+                src={ProductData.imageUrl}
+                alt={ProductData.name}
+              />
+              <div className="product_info_container">
+                <span className="product_category_name">
+                  {ProductData.conCategory2.name}
                 </span>
-                <span className="selling_price">
-                  {ProductData.minSellingPrice
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  원
-                </span>
-                <span className="original_price">
-                  {ProductData.originalPrice
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  원
-                </span>
+                <span className="product_name">{ProductData.name}</span>
+                <div className="price_container">
+                  <span className="discount_rate">
+                    {ProductData.discountRate}%
+                  </span>
+                  <span className="selling_price">
+                    {ProductData.minSellingPrice
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    원
+                  </span>
+                  <span className="original_price">
+                    {ProductData.originalPrice
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    원
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        </Link>
-      )}
+          </Link>
+        )}
+      </div>
       <style jsx>{ProductContentStyle}</style>
     </>
   );
