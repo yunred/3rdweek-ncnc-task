@@ -1,10 +1,8 @@
 import style from "Components/CategoryContainer/CategoryContainer.module.css";
 import Category from "Components/Category/index.Category";
-import * as C from 'Const/Const';
-import * as H from 'Hooks/index.ts';
-import { useState, useEffect } from 'react';
 
 interface CategoryProps {
+  map(arg0: (item: CategoryProps, index: number) => JSX.Element): import("react").ReactNode;
   id: number;
   name: string;
   discountRate: number;

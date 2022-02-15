@@ -1,15 +1,9 @@
 import style from "Components/Category/Category.module.css";
 import css from "styled-jsx/css";
 import Link from "next/link";
+import { CategoryListType } from '/Types/Types';
 
-interface CategoryProps {
-  id: number;
-  name: string;
-  discountRate: number;
-  imageUrl: string;
-}
-
-const Category = ({CategoryData}: {CategoryData: CategoryProps}): JSX.Element => {
+const Category = ({CategoryData}: {CategoryData: CategoryListType}): JSX.Element => {
   return (
     <>
       {CategoryData && (
