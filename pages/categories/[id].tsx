@@ -5,16 +5,18 @@ import * as C from "/Const/Const";
 import * as H from "/Hooks/Hooks.ts";
 import { useState, useEffect } from 'react';
 import CategoryContainer from '/Components/CategoryContainer/index.CategoryContainer';
+import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 
-const Categories: NextPage = ({curruntID, categoryProps}) => {
-    console.log(categoryProps);
-
+const Categories: NextPage = ({curruntID, categoryProps, category1Props}) => {
     const router = useRouter();
-    console.log(router.asPath);
     return (
       <div className={styles.container}>
         <main className={styles.main}>
+          {curruntID !== "1"?
           <CategoryContainer CategoryData={categoryProps}/>
+          :
+          <ProductContainer ProductData = {category1Props}/>
+        }
         </main>
         <footer className={styles.footer}>
           
@@ -26,10 +28,12 @@ const Categories: NextPage = ({curruntID, categoryProps}) => {
 export const getServerSideProps: GetServerSideProps = async (context:GetServerSidePropsContext) => {
   const curruntID = context.params? context.params.id: undefined;
   const categoryProps = await H.useFetch(C.CONCATEGORY_API + curruntID + C.NESTED);
+  const category1Props = await H.useFetch(C.CONITEM_API + C.SOON);
   return {
     props: {
       curruntID: curruntID,
-      categoryProps: categoryProps.conCategory1.conCategory2s
+      categoryProps: categoryProps.conCategory1.conCategory2s,
+      category1Props: category1Props.conItems.sort((a, b)=> a.id - b.id)
     },
   };
 };

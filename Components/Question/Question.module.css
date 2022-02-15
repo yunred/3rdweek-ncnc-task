@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: #eee;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px;
+}
+
+.innerContainer {
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.innerContainer h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.q {
+  color: #f75656;
+  margin: 0 10px 0 0;
+  font-size: 16px;
+}
+
+.seeMoreBtn {
+  background: none;
+  transform: rotate(-91deg);
+}
+
+.seeMoreImg {
+  width: 16px;
+  height: 18px;
+}
+
+.body{
+  background: #ebeced;
+  padding: 17px;
+  height: 100%;
+}
+
+.bodyContent{
+  margin: 16px 0;
+  color:#333333;
+  font-size: 15px;
+}
