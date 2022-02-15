@@ -1,5 +1,6 @@
-import QuestionContainer from 'Components/QuestionContainer/index.QuestionContainer';
+import QuestionContainer from "Components/QuestionContainer/index.QuestionContainer";
 import styles from "styles/Home.module.css";
+import CustomerStyle from "styles/CustomerCenter.module.css";
 
 import * as H from "Hooks/Hooks";
 import * as C from "Const/Const";
@@ -7,16 +8,12 @@ import * as T from "Types/Types";
 
 import { NextPage, GetServerSideProps } from "next";
 
-
-
 const CustomerCenter: NextPage<T.CustomerCenterProps> = ({ faqType }) => {
-
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-      <QuestionContainer faqType={faqType}/>
+    <div className={CustomerStyle.container}>
+      <main className={CustomerStyle.main}>
+          <QuestionContainer faqType={faqType} />
       </main>
-      <footer className={styles.footer}></footer>
     </div>
   );
 };
