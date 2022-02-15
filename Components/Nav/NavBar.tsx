@@ -17,9 +17,9 @@ const NavBar = (): JSX.Element => {
   const [NavdataList, setNavDataList] = useState<any[]>([]);
   const [APIFlag, setAPIFlag] = useState<boolean>(true);
   const [selected, setSelected] = useState<number>();
-  const [isDrag, setIsDrag] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>();
   const [moveX, setMoveX] = useState<number>();
+  const [initialX, setInitialX] = useState<number>(0);
   type MouseEventType = MouseEvent<HTMLElement>;
   type TouchEventType = TouchEvent<HTMLElement>;
   useEffect(() => {
@@ -42,6 +42,9 @@ const NavBar = (): JSX.Element => {
   }, []);
 
   const routerPath = useRouter().asPath;
+  useEffect(() => {
+    setSelected(Number(routerPath.replace(/[^0-9]/g, '')));
+  }, [routerPath]);
 
   const helpCenterHandler = () => {
     setSideBarOpen(false);
@@ -61,7 +64,7 @@ const NavBar = (): JSX.Element => {
     let endX = e.pageX;
     if (startX) {
       let diffX = endX - startX;
-      if (diffX > 0 && Math.abs(diffX) > 20) {
+      if (Math.abs(diffX) > 20) {
         setMoveX(diffX);
         return;
       }
@@ -82,6 +85,7 @@ const NavBar = (): JSX.Element => {
   const onSelectCategory = (index: number): void => {
     setSelected(index);
   };
+
   return (
     <>
       {isSideBarOpen ? (
@@ -150,26 +154,26 @@ const NavBar = (): JSX.Element => {
                     key={e.id}
                     className={style.NavdataItem}
                     onClick={() => {
-                      onSelectCategory(idx);
+                      onSelectCategory(e.id);
                     }}
                     style={{
                       borderBottom: `${
-                        selected === idx ? 'solid 2px #ff5757' : '#ffffff'
+                        selected === e.id ? 'solid 2px #ff5757' : '#ffffff'
                       }`,
                     }}
                   >
                     {routerPath === '/' ? null : (
                       <Link href={`/categories/${e.id}`}>
-                        <a
+                        <span
                           className={style.CategoryText}
                           style={{
                             color: `${
-                              selected === idx ? '#ff5757' : '#000000'
+                              selected === e.id ? '#ff5757' : '#000000'
                             }`,
                           }}
                         >
                           {e.name}
-                        </a>
+                        </span>
                       </Link>
                     )}
                   </button>
