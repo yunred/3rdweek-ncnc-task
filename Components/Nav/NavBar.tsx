@@ -103,7 +103,7 @@ const NavBar = ( { brandName } ): JSX.Element => {
               <div className={style.noneImage}></div>     
             </div>
           </Link>
-          { routerPath == '/' || brandName?<></>:
+          { routerPath == '/' || routerPath == '/contacts' || brandName? <></> :
           <section className={style.TopCategories}>
             <div className={style.subTitleWrapper}>
               <div
