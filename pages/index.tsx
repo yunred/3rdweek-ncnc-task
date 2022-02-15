@@ -1,17 +1,20 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import * as C from "Const/Const";
-import * as H from "Hooks/Hooks";
 import styles from 'styles/Home.module.css'
+
 import CategoryContainer from 'Components/CategoryContainer/index.CategoryContainer';
 import ProductContainer from 'Components/ProductContainer/index.ProductContainer';
 import Carousel from 'Components/Carousel/index.Carousel';
-import { CategoryListType } from 'Types/Types';
+
+import * as H from "Hooks/Hooks";
+import * as T from 'Types/Types';
+
 import { ProductProps } from 'Components/Types/ProductType';
-import CustomerCenter from './CustomerCenter';
 
 interface HomeProps {
-  menuCategory: CategoryListType[]
-  productContent: ProductProps[]
+  menuCategory: T.CategoryListType[];
+  productContent: ProductProps[];
+  currentPage:string;
 }
 
 const Home:NextPage<HomeProps> = ({ currentPage, menuCategory, productContent }) => {
@@ -19,7 +22,7 @@ const Home:NextPage<HomeProps> = ({ currentPage, menuCategory, productContent })
     <div className={styles.container}>
       <main className={styles.main}>
         <Carousel/>
-        <CategoryContainer CategoryData={menuCategory}/>
+        <CategoryContainer CategoryData={menuCategory} currentPage={currentPage}/>
         <div className={styles.middleContent}>
           <span className={styles.contentMessage1}>놓치지 마세요</span>
           <span className={styles.contentMessage2}>오늘의 땡처리콘!</span>
