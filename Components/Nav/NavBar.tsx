@@ -8,25 +8,48 @@ import * as C from '/Const/Const';
 import * as H from '/Hooks/Hooks.ts';
 import * as T from '/Types/Types.ts';
 
-// interface NavDataType{
-//   key?: string | number;
-//   map: string;
-//   src: string;
-//   alt: string;
-//   width: string;
-//   height: string;
-//   href?: string | undefined;
-//   items: string;
-//   Navdata: string[];
-//   temp: any;
-//   id: number;
-// }
-
-interface CategoryProps {
-  id: number;
-  name: string;
-}
-
+const SubNavData = [
+  {
+    idx: 0,
+    title : "땡철이",
+  },
+  {
+    idx: 1,
+    title : "카페",
+  },
+  {
+    idx: 2,
+    title : "편의점,마트",
+  },
+  {
+    idx: 3,
+    title : "빵,아이스크림",
+  },
+  {
+    idx: 4,
+    title : "피자,햄버거,치킨",
+  },
+  {
+    idx: 5,
+    title : "문화,게임,영화",
+  },
+  {
+    idx: 6,
+    title : "외식,분식",
+  },
+  {
+    idx: 7,
+    title : "외식,분식",
+  },
+  {
+    idx: 8,
+    title : "백화점,주유,뷰티",
+  },
+  {
+    idx: 9,
+    title : "휴대폰 데이터",
+  },
+];
 
 const NavBar = (): JSX.Element => {
   const [Navdata, setNavData] = useState({});
@@ -56,14 +79,14 @@ const NavBar = (): JSX.Element => {
                         </div> }               
                     </a>
                     <div>
-                        <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)] }</p>
+                        <p>{routerPath === '/'? "니콘내콘": Navdata[routerPath.slice(12)]  }</p>
                     </div>
                     <div></div>
                 </div>
               </Link>
           </div>
           <div>
-              <p>{routerPath === '/'? null : Navdata[routerPath.slice(12)]  }</p>      
+              {SubNavData.map((e, index)=><p key={e.index} className="subNaveName">{routerPath === '/'? null : <div>{e.title}</div> }</p>)}      
           </div>
     </div>
   );
