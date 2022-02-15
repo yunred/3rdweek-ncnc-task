@@ -140,14 +140,6 @@ const NavBar = (): JSX.Element => {
             <div className={style.subTitleWrapper}>
               <div
                 className={style.NavdataList}
-                onMouseDown={onImgDragStart}
-                onMouseUp={onImgDragEnd}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-                style={{
-                  transition: 'transform 0.5s ease',
-                  transform: `translate(${moveX}px)`,
-                }}
               >
                 {NavdataList.map((e, idx: number) => (
                   <button
