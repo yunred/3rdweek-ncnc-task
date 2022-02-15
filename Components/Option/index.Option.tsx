@@ -67,8 +67,9 @@ const getTimes = (str: string): string => {
       result += "12월";
       break;
   }
+  result += " " + day + "일 까지"
 
-  return (result += " " + day + "일 까지");
+  return result;
 };
 
 const getPrice = (str: string): string => {
