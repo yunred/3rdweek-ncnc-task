@@ -28,9 +28,9 @@ const getTimes = (str: string) => {
   const YYYY = date.getFullYear();
   let mm = String(date.getMonth() + 1);
   let dd = String(date.getDate());
-  
-  if(parseInt(dd) < 10){
-    dd = '0'+dd;
+
+  if (parseInt(dd) < 10) {
+    dd = "0" + dd;
   }
 
   return `${YYYY}년 ${mm}월 ${dd}일 까지`;
@@ -79,19 +79,6 @@ const Option = ({ options, discountRate }: OptionProps) => {
         style={isOpen ? openBg : closeBg}
         className={style.blackBg}
       >
-        <div
-          style={{ bottom: isOpen ? "200px" : "0" }}
-          className={style.innerTitle}
-        >
-          <span>{optionsContent.title}</span>
-          <button
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            X
-          </button>
-        </div>
         {item && (
           <div
             className={style.selectedItem}
@@ -109,6 +96,16 @@ const Option = ({ options, discountRate }: OptionProps) => {
         <div className={style.overflowContainer}>
           <div className={style.innerContainer}>
             <ul style={isOpen ? open : close}>
+              <div className={style.innerTitle}>
+                <span>{optionsContent.title}</span>
+                <button
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                >
+                  X
+                </button>
+              </div>
               {options &&
                 options.map((item, index) => {
                   return (
