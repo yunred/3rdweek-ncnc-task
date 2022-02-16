@@ -55,6 +55,8 @@
   padding:0 20px;
   width: 100%;
   justify-content: space-between;
+  position: fixed;
+  transform: translateY(-50px);
 }
 
 .selectContainer {
