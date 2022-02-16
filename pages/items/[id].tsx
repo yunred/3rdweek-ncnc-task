@@ -1,13 +1,12 @@
-import { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
-import { ReactElement, useEffect, useState } from "react";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { useEffect, useState } from "react";
 
 import * as H from "Hooks/Hooks";
 import * as C from "Const/Const";
+import * as T from "Types/Types";
 
 import styles from "styles/Item.module.css";
 import ItemContainer from "Components/ItemContainer/index.ItemContainer";
-import * as T from "Types/Types";
-import Option  from 'Components/Option/index.Option';
 
 import NavBar from 'Components/Nav/NavBar';
 
@@ -17,8 +16,6 @@ interface ItemPageProps {
 
 const Items = ({ currentId }:ItemPageProps) => {
   const [itemData, setItemData] = useState<T.ItemProps>();
-
-  console.log(itemData);
 
   useEffect(() => {
     (async () => {
