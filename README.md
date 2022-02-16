@@ -1,7 +1,7 @@
 ## 더블앤씨 기업과제 저장소입니다.
 
 ## [Go Demo🚀](https://620c2f3c2d75ad1ebfae4eeb--youthful-mirzakhani-d90483.netlify.app/)
-  url= https://620c2f3c2d75ad1ebfae4eeb--youthful-mirzakhani-d90483.netlify.app/
+  url= https://sad-jackson-0809cb.netlify.app/
 
 ## Member
 
