@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import style from "./NavBar.module.css";
 import css from "styled-jsx/css";
 import Link from "next/link";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
     const goBackHandler = () =>{
@@ -14,7 +14,7 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
 
         <div className={style.sideBarwrapperContainer} onClick={goBackHandler}  >
                 <div className={style.myPageWrap} >
-                <Image
+                <img
                       src="/images/close.png"
                       alt="seeback"
                       width="20px"
@@ -29,7 +29,7 @@ const NavSideBar = ({setSideBarOpen} : any): JSX.Element => {
                         <a className={style.sideBarIcon} > 
                             <div> 고객센터 </div> 
                             <div className={style.sideBarTitle}>
-                            <Image
+                            <img
                             src="/images/arrowRightIcon.png"
                             alt="seeback"
                             width="20px"

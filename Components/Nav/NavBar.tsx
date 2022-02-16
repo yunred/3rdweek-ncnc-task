@@ -1,7 +1,7 @@
 import style from './NavBar.module.css';
 import css from 'styled-jsx/css';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState, useEffect, MouseEvent, TouchEvent } from 'react';
 import * as C from 'Const/Const';
@@ -64,7 +64,7 @@ const NavBar = ( { brandName }:propsTypes ): JSX.Element => {
               <a className={style.navIcon}>
                 {routerPath === '/' ? (
                   <div onClick={helpCenterHandler}>
-                    <Image
+                    <img
                       src="/images/hamburgermenu.png"
                       alt="seemore"
                       width="30px"
@@ -73,7 +73,7 @@ const NavBar = ( { brandName }:propsTypes ): JSX.Element => {
                   </div>
                 ) : routerPath === '/contacts' ? (
                   <div className={style.navImage}>
-                    <Image
+                    <img
                       src="/images/close.png"
                       alt="seeback"
                       width="20px"
@@ -82,7 +82,7 @@ const NavBar = ( { brandName }:propsTypes ): JSX.Element => {
                   </div>
                 ) : (
                   <div className={style.navImage}>
-                    <Image
+                    <img
                       src="/images/arrowback.png"
                       alt="seeback"
                       width="30px"
