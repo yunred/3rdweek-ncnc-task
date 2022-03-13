@@ -4,7 +4,7 @@ import { ProductProps } from '../Types/ProductType';
 import style from 'Components/ProductContainer/ProductContainer.module.css';
 
 interface ProductContainerProps {
-  ProductData: ProductProps[];
+  ProductData: ProductProps[] | undefined;
   isItemList?: boolean;
 }
 
@@ -15,11 +15,15 @@ const ProductContainer = ({
   return (
     <>
       <div className={style.PDwarpper}>
-        {ProductData.map((item, index) => (
-          <div className={style.innerContainer} key={index}>
-            <ProductContent ProductData={item} isItemList={isItemList} />
-          </div>
-        ))}
+        {ProductData ? (
+          <>
+            {ProductData.map((item, index) => (
+              <div className={style.innerContainer} key={index}>
+                <ProductContent ProductData={item} isItemList={isItemList} />
+              </div>
+            ))}
+          </>
+        ) : null}
       </div>
     </>
   );
