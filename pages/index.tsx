@@ -29,7 +29,6 @@ const Home: NextPage<HomeProps> = ({ currentPage, menuCategory }) => {
   useEffect(() => {
     FetchProductContent();
   }, [FetchProductContent]);
-  console.log(productContent);
   return (
     <>
       <NavBar />
