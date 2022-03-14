@@ -1,6 +1,6 @@
 ## 더블앤씨 기업과제 저장소입니다.
 
-## [Go Demo🚀](https://620c2f3c2d75ad1ebfae4eeb--youthful-mirzakhani-d90483.netlify.app/)
+## [Go Demo🚀](https://https://naughty-rosalind-312d20.netlify.app/)
   url= https://sad-jackson-0809cb.netlify.app/
 
 
@@ -133,8 +133,46 @@ $ npm start
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/84527643/157202778-a596cdd2-9705-4cbd-b5cf-230d230f5d1d.gif)
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/84527643/157203189-1d046efc-e27c-4298-b881-4d913257ef16.gif)
 
-
 `cypress`를 통해 주요 로직을 테스트하였습니다.
+
+  <br/>
+  
+## 속도 개선을 위한 렌더링 방식 변경
+프로젝트 제출 이후, 저는 getServerSideProps 사용 시 페이지 이동 속도가 느려지는 문제를 발견하였고, 개선하고자 렌더링 방식을 변경하였습니다.
+  
+변경 전 url : https://naughty-rosalind-312d20.netlify.app/
+  <br/>
+변경 후 url= https://sad-jackson-0809cb.netlify.app/
+  
+### ✅pages/index.tsx
+- 기존 렌더링 방식 : 사전 렌더링(getServerSideProps 함수를 사용한 SSR)
+#### 변경된 렌더링 방식
+- 메뉴 카테고리  : 사전 렌더링(getStaticProps 함수를 사용한 SSR)
+- 땡처리콘 productContainer : CSR
+
+#### 변경 이유
+- getServerSideProps 사용 시 페이지 이동 속도가 느려지는 문제를 개선하고자 렌더링 방식을 변경하였습니다.
+- 쉽게 변하지 않는 데이터인 메뉴카테고리를 getStaticProps를 사용하여 사전 렌더링을 하였습니다.
+- 그에 비해 땡처리 콘 ProductContainer 데이터에서는 아이템 유무, 아이템의 가격, 할인율 등 데이터 정보가 빌드 시점 이후 쉽게 바뀔 수 있으므로 CSR을 사용하였습니다.
+
+ ### ✅pages/categories/[id].tsx 
+- 기존 렌더링 방식 : 사전 렌더링(getServerSideProps 함수를 사용한 SSR)
+- 변경된 렌더링 방식 : 사전렌더링(getStaticProps와 getStaticPaths 함수를 사용한 dynamic SSG)
+  -  변경 이유: 카테고리 별 브랜드목록은 매번 바뀌지 않습니다.
+  -  getStaticPaths에 라우팅되는 경우의 수를 추가하였습니다.
+
+ ### ✅pages/contacts
+- 기존 렌더링 방식 : 사전 렌더링(getServerSideProps 함수를 사용한 SSR)
+- 변경된 렌더링 방식 : 사전 렌더링(getStaticProps 함수를 사용한 SSR)
+  - 변경 이유 : 고객센터 페이지는 빌드 시점마다 변하지 않습니다.
+
+### ✅pages/categories/[id].tsx 
+- 기존 렌더링 방식 : 사전 렌더링(getServerSideProps 함수를 사용한 SSR)
+- 변경된 렌더링 방식 : CSR
+  - 변경 이유 : 아이템 목록, 할인율 등은 수시로 바뀌기 때문에 CSR를 사용하였습니다.
+  
+  
+<br/>
 
 ## 프로젝트 후기
 
