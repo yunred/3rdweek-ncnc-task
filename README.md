@@ -1,7 +1,7 @@
 ## 더블앤씨 기업과제 저장소입니다.
 
 ## [Go Demo🚀](https://https://naughty-rosalind-312d20.netlify.app/)
-  url= https://sad-jackson-0809cb.netlify.app/
+  url= https://naughty-rosalind-312d20.netlify.app/
 
 
 ## 역할 분담
@@ -140,9 +140,9 @@ $ npm start
 ## 속도 개선을 위한 렌더링 방식 변경
 프로젝트 제출 이후, 저는 getServerSideProps 사용 시 페이지 이동 속도가 느려지는 문제를 발견하였고, 개선하고자 렌더링 방식을 변경하였습니다.
   
-변경 전 url : https://naughty-rosalind-312d20.netlify.app/
+변경 전 url =  https://sad-jackson-0809cb.netlify.app/
   <br/>
-변경 후 url= https://sad-jackson-0809cb.netlify.app/
+변경 후 url = https://naughty-rosalind-312d20.netlify.app/
   
 ### ✅pages/index.tsx
 - 기존 렌더링 방식 : 사전 렌더링(getServerSideProps 함수를 사용한 SSR)
