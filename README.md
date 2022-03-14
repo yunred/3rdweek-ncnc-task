@@ -3,30 +3,6 @@
 ## [Go Demo🚀](https://620c2f3c2d75ad1ebfae4eeb--youthful-mirzakhani-d90483.netlify.app/)
   url= https://sad-jackson-0809cb.netlify.app/
 
-## Member
-
-<table>
-<tr>
-<td align="center"><a href="https://github.com/WongueShin"><img src="https://media.vlpt.us/images/yeonbee/post/a3b02f02-0826-4cc9-b63e-9ddce5fbd857/wongyu.jpg" width="100%" /></a></td>
-<td align="center"><a href="https://github.com/zerochae"><img src="https://avatars.githubusercontent.com/u/84373490?v=4" width="90%" /></a></td>
-<td align="center"><a href="https://github.com/yunred"><img src="https://avatars.githubusercontent.com/u/84527643?v=4" width="90%" /></a></td>
-<td align="center"><a href="https://github.com/jyb1798"><img src="https://avatars.githubusercontent.com/u/64634495?s=400&u=3da5cb5a3ff4338da83a58a23df0608da5092ddc&v=4" width="100%" /></a></td>
-</tr>
-<tr>
-<td align="center"><b>신원규(팀장)</b></td>
-<td align="center"><b>권영채</b></td>
-<td align="center"><b>김서윤</b></td>
-<td align="center"><b>지연비</b></td>
-</tr>
-<tr>
-<td align="center"><b>FE Developer</b></td>
-<td align="center"><b>FE Developer</b></td>
-<td align="center"><b>FE Developer</b></td>
-<td align="center"><b>FE Developer</b></td>
-</tr>
-</table>
-
-<br />
 
 ## 역할 분담
 
@@ -152,7 +128,11 @@ $ npm start
 
 ## E2E Test
 
-![Animation](https://user-images.githubusercontent.com/84373490/154145888-57aa53c0-7b13-4c3f-845a-34d16af13348.gif)
+![image](https://user-images.githubusercontent.com/84527643/157201926-94215fbc-49c4-48da-b4b9-fe6b4dd65121.png)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/84527643/157202119-d2f7f431-b505-498c-a28b-477e6be94ec0.gif)
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/84527643/157202778-a596cdd2-9705-4cbd-b5cf-230d230f5d1d.gif)
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/84527643/157203189-1d046efc-e27c-4298-b881-4d913257ef16.gif)
+
 
 `cypress`를 통해 주요 로직을 테스트하였습니다.
 
