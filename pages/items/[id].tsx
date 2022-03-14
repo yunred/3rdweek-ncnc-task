@@ -1,4 +1,3 @@
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useEffect, useState, useCallback } from 'react';
 
 import * as H from 'Hooks/Hooks';
@@ -7,22 +6,25 @@ import * as T from 'Types/Types';
 
 import styles from 'styles/Item.module.css';
 import ItemContainer from 'Components/ItemContainer/index.ItemContainer';
-
+import { useRouter } from 'next/router';
 import NavBar from 'Components/Nav/NavBar';
 
-interface ItemPageProps {
-  currentId: number;
-}
-
-const Items = ({ currentId }: ItemPageProps) => {
+const Items = () => {
   const [itemData, setItemData] = useState<T.ItemProps>();
-  const FetchItem = useCallback(async () => {
+  const router = useRouter();
+  const [currentId, setCurrentId] = useState<number>();
+  const FetchItemData = useCallback(async () => {
     const res = await H.Fetch(`${C.CONITEM_API}/${currentId}`);
     setItemData(res.conItem);
   }, [currentId]);
   useEffect(() => {
-    FetchItem();
-  }, [FetchItem]);
+    if (router.query.id && typeof router.query.id !== 'object') {
+      setCurrentId(parseInt(router.query.id));
+      if (currentId !== undefined) {
+        FetchItemData();
+      }
+    }
+  }, [FetchItemData, currentId, router.query.id]);
 
   return (
     <>
@@ -37,16 +39,5 @@ const Items = ({ currentId }: ItemPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
-) => {
-  const currentId = context.params ? context.params.id : undefined;
-
-  return {
-    props: {
-      currentId: currentId,
-    },
-  };
-};
-
 export default Items;
+
