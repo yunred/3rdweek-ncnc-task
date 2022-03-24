@@ -43,8 +43,8 @@ const NavBar = ({ brandName }: propsTypes): JSX.Element => {
       }
     })();
   }, []);
-
   const routerPath = useRouter().asPath;
+  let path = routerPath.split('/');
   useEffect(() => {
     setSelected(Number(routerPath.replace(/[^0-9]/g, '')));
   }, [routerPath]);
@@ -81,6 +81,17 @@ const NavBar = ({ brandName }: propsTypes): JSX.Element => {
                       alt="seeback"
                       width="20px"
                       height="20px"
+                    />
+                  </div>
+                </Link>
+              ) : path[1] === 'categories' ? (
+                <Link href="/" passHref>
+                  <div className={style.navImage}>
+                    <Image
+                      src="/images/arrowback.png"
+                      alt="seeback"
+                      width="30px"
+                      height="30px"
                     />
                   </div>
                 </Link>
