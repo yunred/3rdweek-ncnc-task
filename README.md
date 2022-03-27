@@ -166,7 +166,7 @@ $ npm start
 - 변경된 렌더링 방식 : 사전 렌더링(getStaticProps 함수를 사용한 SSR)
   - 변경 이유 : 고객센터 페이지는 빌드 시점마다 변하지 않습니다.
 
-### ✅pages/categories/[id].tsx 
+### ✅pages/items/[id].tsx 
 - 기존 렌더링 방식 : 사전 렌더링(getServerSideProps 함수를 사용한 SSR)
 - 변경된 렌더링 방식 : CSR
   - 변경 이유 : 아이템 목록, 할인율 등은 수시로 바뀌기 때문에 CSR를 사용하였습니다.
